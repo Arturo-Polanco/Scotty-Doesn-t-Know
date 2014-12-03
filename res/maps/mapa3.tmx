@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="34" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="back" value="grassy_mountains.png"/>
+ </properties>
+ <tileset firstgid="1" name="Suelo" tilewidth="32" tileheight="32">
+  <image source="suelo.png" trans="ff00ff" width="128" height="64"/>
+ </tileset>
+ <tileset firstgid="9" name="BackGround" tilewidth="32" tileheight="32">
+  <image source="tiled.png" trans="ff00ff" width="160" height="192"/>
+ </tileset>
+ <tileset firstgid="39" name="grassy" tilewidth="32" tileheight="32">
+  <image source="../../../Gravity/data/img/tilesets/grassy_tileset.png" trans="ff00ff" width="640" height="1280"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Floor" width="240" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3WQQqDMBAF0GxsvIn3v2EtVBpCFTWmTuENvIUawtdJ1CmlNAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADcIAfIwMcwe7z7MgbIA0AfOUAGgH/jX5lWOUAG+hkaeLdAH2f24JGyh78bA1kylT0qe1b3bzne29d6XDnPkWt789Xn1/Jv3dvW2LX9ceW37ewcv6jWtXb3er9KlHo90ydeDjqagH8AAA==
+  </data>
+ </layer>
+ <layer name="Background" width="240" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3XywrCMBAF0Gx9v/UT/P8/NKBiGdJUBQmtZ3EWaWDIBC6TXlNKVwAAAAAAAAAAAAAAAAAAAAAAAAAAAAB+apbNs0W2zFYPrc8FDCvld5/6Mzx7U6zZuk+Ymr7Ze0n3DH+a0VKtrvjdvIfv9c3eZz7XAzbZNtul18xedepEu8q69V3AmJSyG3N7GHDMTtk5vWb206XgXFm3vg8Yk9J7OOa2ls8oZrV1fzBFtbdxX27j3Cxp3Rf8g9rbOOb2WNlr3Qf8o3f/ZVufEwCm4gbXpOvBgH8AAA==
+  </data>
+ </layer>
+ <objectgroup name="EnemyLayer" width="240" height="34">
+  <object name="Enemy" type="Enemy" x="317" y="376" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="920" y="660" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="1187" y="830" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="1529" y="276" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="2038" y="394" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="1699" y="863" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="2281" y="897" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="3059" y="676" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="3990" y="824" width="50" height="60"/>
+ </objectgroup>
+</map>
