@@ -39,12 +39,13 @@ class Game extends StateBasedGame {
 		gameContainer.setMaximumLogicUpdateInterval(240);
 		gameContainer.setTargetFrameRate(240);
 		gameContainer.setAlwaysRender(true);
+		gameContainer.setShowFPS( false );
 
 		new Resources();
 
 		/* Add Menu, Game levels and Game Over/Victory Screen */
-		this.addState(new Game_State());
 		this.addState(new Menu_State());
+		this.addState( new Game_State() );
 		this.addState( new Win_State() );
 		this.addState( new Lose_State() );
 

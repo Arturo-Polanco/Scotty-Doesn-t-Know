@@ -1,11 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="50" height="28" tilewidth="32" tileheight="32">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="34" tilewidth="32" tileheight="32">
+ <properties>
+  <property name="back" value="grassy_mountains.png"/>
+ </properties>
  <tileset firstgid="1" name="tile" tilewidth="32" tileheight="32">
   <image source="tile.png" width="128" height="160"/>
  </tileset>
- <layer name="Tile Layer 1" width="50" height="28">
+ <tileset firstgid="21" name="grassy" tilewidth="32" tileheight="32">
+  <image source="grassy_tileset.png" trans="ff00ff" width="640" height="1280"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Background" width="240" height="34">
   <data encoding="base64" compression="gzip">
-   H4sIAAAAAAAAC+2W6wrDIAxGHVvpLt1V3/9Zl0ADIYvWdc4b/XGQqq0e/Sw6Y4xbwQi8AMvKI3Bgzzaif6hdK7V3f+EfHktz52WLHlap2zzKeHBye/CxW/VwkR5yLqNo8+Vp81j2IGI9ZH/Nw5en2vYjxiNUtuAxVOKR4r/bk8cVuMxMM7V4DF94IDfgDjwa3g+ZL/5cq8cJOJvPDLXmge08Q779oDMzFfLQ1lvLlQYfhzxL7odc75BHDfer1Pf2Uh6YIZnhFj0wP5QdbZ4+D+2OmMODr3uKXGl3xBwetO6pzkcpj97OOVHS47kSHHcvoG/zuqX+ofYQ/F1k1wlvvqWZmOAVAAA=
+   H4sIAAAAAAAAC+3bi2rCMBiA0YxN3MVdnL7/s64Fi1mWtFXTrt3OgZ+irQyEj6Q6jyGE4xWzbeazmUN0fGzmIXp8GHF93/ncMffaduA/uqbdqfodajY+6hfW0e8h85x+Qb+wZkvvNx79wndT9Bs3p1+YTu1+j2Fcv2mD2+Rcad+sXzjTL6xXjX67Gdtven2u39K+Wb9w9lvr75h++476hWX2uwn6hTGm6LfG90f6hWFL7ve1mZfT7E6jXzibu99N5vpSv+28NfPezEew/kJqyetvuo+OH+sXltPvUzPP4edeWb9QtpR+2/PxXrm0/nb3xLugX5ir39z6mts/5yb+O13f1l+Yd/1N19e+fv3/JAxb0v4516p+oWyKftu9cnqPql+ob4p+231yt0fO9VnqN/fbBf1C2S39xutsjf1z7rcL+oWyW/rt1tla97/6hcv4/ArWq0a/3egX5rW/ctre7pPpmoqfG7q+73zfxK/dV39XYB3u/sgAAAAAAABQxxcFH/WDgH8AAA==
+  </data>
+ </layer>
+ <objectgroup name="EnemyLayer" width="240" height="34">
+  <object name="Enemy" type="Enemy" x="1858" y="560" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="697" y="456" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="1011" y="626" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="627" y="700" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="333" y="578" width="50" height="60"/>
+ </objectgroup>
+ <layer name="Floor" width="240" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3VoQ3EQAADwUsR6b/VNBDwj+KVBgw3Wfk+59zwo2tgA/A/7UKXfqFLv9CkXejSL3TpF5q0C136hS79Qpd+oUm70KVf6NIvNGkXuvQLXfqFJu1Cx/Xi603Ae5tahe9pEzZpEzZpEzZpEzZpE3ZpEzb5TtikTdikTdikTdikTdikTdikTWjQJnQ9hofux4B/AAA=
   </data>
  </layer>
 </map>

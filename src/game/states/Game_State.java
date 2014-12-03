@@ -2,6 +2,7 @@ package game.states;
 
 import game.entities.Entity;
 import game.entities.Player;
+import game.resources.Resources;
 import game.utils.input.KeyboardPlayerInput;
 import game.utils.input.PlayerController;
 import game.utils.level.Level;
@@ -10,6 +11,7 @@ import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
 import org.newdawn.slick.Input;
 import org.newdawn.slick.SlickException;
+import org.newdawn.slick.openal.SoundStore;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -20,23 +22,20 @@ import org.newdawn.slick.state.StateBasedGame;
  * Proyecto
  */
 public class Game_State extends BasicGameState {
+	public static StateBasedGame stateGame;
 	public static float    SCALE;
 	public static int      width;
 	public static int      height;
 	public static Level    level;
-	public static StateBasedGame stateGame;
-	public Physics physics;
-
+	public static Physics        physics;
 	public static PlayerController playerController;
-
-	public Player player;
+	public static Player         player;
 
 	public int getID() {
 		return States.GAME;
 	}
 
 	public void init(GameContainer gameContainer, StateBasedGame stateBasedGame) throws SlickException {
-		gameContainer.setAlwaysRender(true);
 		stateGame = stateBasedGame;
 		width = gameContainer.getWidth();
 		height = gameContainer.getHeight();
@@ -45,8 +44,9 @@ public class Game_State extends BasicGameState {
 		playerController = new KeyboardPlayerInput( player );
 
 		physics = new Physics();
-		level = new Level( "LevelOne", player );
-
+		level = new Level( Resources.getLevel( 0 ), player );
+		SoundStore.get().setMusicVolume( 0.6f );
+		Resources.getAudio( "song" ).playAsMusic( 1.0f, 1.0f, true );
 	}
 
 	public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
@@ -70,7 +70,15 @@ public class Game_State extends BasicGameState {
 			if ( input.isKeyPressed(Input.KEY_ESCAPE) )
 				stateBasedGame.enterState(States.MENU);
 
+			/* Test Win / Loss of Game */
 			gameStatus();
+
+			/* Sound*/
+			SoundStore.get().poll( delta );
+			if ( !Resources.getAudio( "song" ).isPlaying() ) {
+				Resources.getAudio( "song2" ).stop();
+				Resources.getAudio( "song" ).playAsMusic( 1.0f, 1.0f, true );
+			}
 
 		}
 		catch ( Exception e ) {
@@ -79,9 +87,9 @@ public class Game_State extends BasicGameState {
 	}
 
 	public void gameStatus(){
-		if ( Level.enemies.isEmpty() )
+		if ( Level.entities.size() == 1 && Level.entities.get( 0 ) instanceof Player )
 			Game_State.stateGame.enterState( States.WIN );
-		if ( Level.entities.get( 0 ).getY() > Game_State.height*Game_State.SCALE+32 || Level.entities.get( 0 ).health <= 0 )
+		if ( player.getY() > Game_State.height * Game_State.SCALE + 32 || player.health <= 0 )
 			Game_State.stateGame.enterState( States.LOSE );
 	}
 }

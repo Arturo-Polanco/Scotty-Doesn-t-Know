@@ -1,5 +1,6 @@
 package game.states;
 
+import game.resources.Resources;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -25,6 +26,7 @@ public class Menu_State extends BasicGameState {
 	}
 
 	public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
+		g.scale( Game_State.SCALE, Game_State.SCALE );
 		g.setBackground(Color.gray);
 		g.setColor(Color.black);
 		g.drawString("Menu State", 150, 150);
@@ -46,6 +48,11 @@ public class Menu_State extends BasicGameState {
 		down = input.isControllerDown(0);
 		right = input.isControllerRight(0);
 		left = input.isControllerLeft(0);
+		if ( Resources.getAudio( "song" ).isPlaying() ) {
+			Resources.getAudio( "song" ).stop();
+			Resources.getAudio( "song2" ).playAsMusic( 1.0f, 1.0f, true );
+		}
+
 		if ( input.isKeyPressed(Input.KEY_ENTER) || input.isControlPressed(8) )
 			stateBasedGame.enterState(States.GAME);
 		if ( input.isKeyPressed(Input.KEY_ESCAPE) || input.isControlPressed(7) )

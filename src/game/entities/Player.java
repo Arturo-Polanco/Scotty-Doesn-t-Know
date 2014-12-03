@@ -52,6 +52,7 @@ public class Player extends Character {
 				else
 				/* Punch Left */
 					anime = Resources.getAnimation(Resources.loadImage("res/sprites/scott/punch_Left.png"), 16, 1, width, height);
+				Resources.getAudio( "punch" ).playAsSoundEffect( 1.0f, 1.0f, false );
 				punched = false;
 				moved = true;
 			}

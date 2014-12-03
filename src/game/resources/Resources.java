@@ -1,8 +1,12 @@
 package game.resources;
 
 import org.newdawn.slick.*;
+import org.newdawn.slick.openal.Audio;
+import org.newdawn.slick.openal.AudioLoader;
 import org.newdawn.slick.tiled.TiledMap;
+import org.newdawn.slick.util.ResourceLoader;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,11 +19,18 @@ import java.util.Map;
 public class Resources {
 	public static  Map<String, TiledMap>    maps;
 	private static Map<String, Image>       images;
-
+	private static Map<String, Sound> sounds;
+	private static Map<String, Music> musics;
+	private static Map<String, Audio> audio;
+	private static String[]           levels;
 
 	public Resources() {
+		levels = new String[] { "LevelOne", "LevelTwo", "LevelThree" };
 		images = new HashMap<>();
 		maps = new HashMap<>();
+		sounds = new HashMap<>();
+		musics = new HashMap<>();
+		audio = new HashMap<>();
 
 		try {
 			/* add tile maps to map hash map */
@@ -38,8 +49,16 @@ public class Resources {
 			images.put("StrengthPowerUp", loadImage("res/sprites/powerup/strength.png"));
 			images.put("25HealthPowerUp", loadImage("res/sprites/powerup/25health.png"));
 			images.put("SlowSpeedPowerUp", loadImage("res/sprites/powerup/slow.png"));
-		}
-		catch ( SlickException e ) {
+
+			/* add Sounds */
+			sounds.put( "punch", loadSound( "res/sounds/punch.wav" ) );
+			/* add Music */
+			musics.put( "music", loadMusic( "res/sounds/BloodyTears.ogg" ) );
+			/* add Audio */
+			audio.put( "song", loadOggAudio( "res/sounds/BloodyTears.ogg" ) );
+			audio.put( "song2", loadOggAudio( "res/sounds/AerisPianoByTannerHelland.ogg" ) );
+			audio.put( "punch", loadWavAudio( "res/sounds/punch.wav" ) );
+		} catch ( Exception e ) {
 			e.printStackTrace();
 		}
 	}
@@ -66,5 +85,37 @@ public class Resources {
 
 	public static TiledMap getTiledMap(String map) {
 		return maps.get( map );
+	}
+
+	public static String getLevel( int i ) {
+		return levels[i];
+	}
+
+	public static Music getMusic( String music ) {
+		return musics.get( music );
+	}
+
+	public static Sound getSound( String sound ) {
+		return sounds.get( sound );
+	}
+
+	public static Sound loadSound( String path ) throws SlickException {
+		return new Sound( path );
+	}
+
+	public static Music loadMusic( String path ) throws SlickException {
+		return new Music( path );
+	}
+
+	public static Audio loadOggAudio( String path ) throws SlickException, IOException {
+		return AudioLoader.getAudio( "OGG", ResourceLoader.getResourceAsStream( path ) );
+	}
+
+	public static Audio loadWavAudio( String path ) throws SlickException, IOException {
+		return AudioLoader.getAudio( "WAV", ResourceLoader.getResourceAsStream( path ) );
+	}
+
+	public static Audio getAudio( String sound ) {
+		return audio.get( sound );
 	}
 }
