@@ -1,5 +1,6 @@
 package game.utils.physics;
 
+import game.entities.Entity;
 import game.utils.tiles.Tile;
 
 import java.util.ArrayList;
@@ -14,11 +15,13 @@ public abstract class BoundingShape {
 
 	public boolean checkCollision(BoundingShape bs){
 		if(bs instanceof AABoundingRect)
-			return checkCollision( (AABoundingRect ) bs);
+			return checkTileCollision( (AABoundingRect) bs );
 		return false;
 	}
 
-	public abstract boolean checkCollision(AABoundingRect box);
+	public abstract boolean checkTileCollision( AABoundingRect box );
+
+	public abstract boolean checkEntityCollision( Entity entity );
 
 	public abstract void updatePosition(float newX, float newY);
 

@@ -1,5 +1,9 @@
 package game.utils.physics;
 
+import game.entities.Enemy;
+import game.entities.Entity;
+import game.entities.Player;
+import game.utils.level.Level;
 import game.utils.tiles.Tile;
 
 import java.util.ArrayList;
@@ -23,18 +27,27 @@ public class AABoundingRect extends BoundingShape{
 		this.height = height;
 	}
 
-	public void updatePosition(float newX, float newY){
+	public boolean checkTileCollision( AABoundingRect rect ) {
+		return !( rect.x > this.x + width || rect.x + rect.width < this.x || rect.y > this.y + height || rect.y + rect.height < this.y );
+	}
+
+	public boolean checkEntityCollision( Entity entity ) {
+		for ( Entity entity1 : Level.entities ) {
+			if ( entity != entity1 )
+				if ( entity.hitBox.intersects( entity1.hitBox ) && entity1 instanceof Player || entity1 instanceof Enemy )
+					return true;
+		}
+		return false;
+	}
+
+	public void updatePosition( float newX, float newY ) {
 		this.x = newX;
 		this.y = newY;
 	}
 
-	public void movePosition(float x, float y){
+	public void movePosition( float x, float y ) {
 		this.x += x;
 		this.y += y;
-	}
-
-	public boolean checkCollision( AABoundingRect rect ) {
-		return !( rect.x > this.x+width || rect.x+rect.width < this.x || rect.y > this.y+height || rect.y+rect.height < this.y);
 	}
 
 	public ArrayList<Tile> getTilesOccupying( Tile[][] tiles ) {
