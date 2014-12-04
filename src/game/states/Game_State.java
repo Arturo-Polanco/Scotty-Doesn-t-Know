@@ -23,14 +23,14 @@ import org.newdawn.slick.state.StateBasedGame;
  * Proyecto
  */
 public class Game_State extends BasicGameState {
-	public static StateBasedGame   stateGame;
-	public static float            SCALE;
-	public static int              width;
-	public static int              height;
-	public static Level            level;
-	public static Physics          physics;
-	public static PlayerController playerController;
-	public static Player           player;
+	public static  float            SCALE;
+	public static  int              width;
+	public static  int              height;
+	public static  Level            level;
+	public static  PlayerController playerController;
+	public static  Player           player;
+	private static StateBasedGame   stateGame;
+	private static Physics          physics;
 
 	public int getID() {
 		return States.GAME;
@@ -82,12 +82,12 @@ public class Game_State extends BasicGameState {
 		}
 	}
 
-	public void deadEntity( Entity entity ) {
+	void deadEntity( Entity entity ) {
 		if ( entity.health <= 0 && entity instanceof Enemy )
 			Level.entities.remove( entity );
 	}
 
-	public void gameStatus() {
+	void gameStatus() {
 		if ( Level.entities.size() == 1 && Level.entities.get( 0 ) instanceof Player )
 			Game_State.stateGame.enterState( States.WIN );
 		if ( player.getY() > Game_State.height * Game_State.SCALE + 32 || player.health <= 0 )

@@ -107,19 +107,19 @@ public class Resources {
 		return sounds.get( sound );
 	}
 
-	public static Sound loadSound( String path ) throws SlickException {
+	private static Sound loadSound( String path ) throws SlickException {
 		return new Sound( path );
 	}
 
-	public static Music loadMusic( String path ) throws SlickException {
+	private static Music loadMusic( String path ) throws SlickException {
 		return new Music( path );
 	}
 
-	public static Audio loadOggAudio( String path ) throws SlickException, IOException {
+	private static Audio loadOggAudio( String path ) throws SlickException, IOException {
 		return AudioLoader.getAudio( "OGG", ResourceLoader.getResourceAsStream( path ) );
 	}
 
-	public static Audio loadWavAudio( String path ) throws SlickException, IOException {
+	private static Audio loadWavAudio( String path ) throws SlickException, IOException {
 		return AudioLoader.getAudio( "WAV", ResourceLoader.getResourceAsStream( path ) );
 	}
 

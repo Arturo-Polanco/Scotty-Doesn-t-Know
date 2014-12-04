@@ -20,41 +20,42 @@ public abstract class Entity implements Mover{
 	public float     maxHealth;
 	public float     x;
 	public float     y;
-	public int       width;
 	public int       height;
-	public Vector2f  vector2f;
 	/* Special variables assigned to entity */
 	public Rectangle hitBox;
+	public boolean   punching;
+	public boolean   punched;
+	int           width;
+	Vector2f      vector2f;
 	/* Movement boolean values*/
-	boolean moving;
-	boolean movedRight;
-	boolean moved;
-	public boolean punching;
-	public boolean punched;
-	boolean       onGround;
+	boolean       moving;
+	boolean       movedRight;
+	boolean       moved;
 	/**/
 	/**/
 	BoundingShape boundingShape;
 	Animation     anime;
 	Image         image;
-	float horizontalVelocity = 0;
-	float verticalVelocity   = 0;
-	float maxFallRate        = .6f;
-	protected float maximumSpeed;
-	protected float accelerationSpeed;
-	protected float decelerationSpeed;
+	float verticalVelocity = 0;
+	float maximumSpeed;
+	float accelerationSpeed;
+	float decelerationSpeed;
+	private boolean onGround;
+	private float horizontalVelocity = 0;
+	private float maxFallRate        = .6f;
 
-	public void setX( float f ) {
-		x = f;
-		updateBoundingShape();
+	Entity() {
+		init();
 	}
+
+	protected abstract void init();
 
 	public float getX() {
 		return x;
 	}
 
-	public void setY( float f ) {
-		y = f;
+	public void setX( float f ) {
+		x = f;
 		updateBoundingShape();
 	}
 
@@ -62,13 +63,12 @@ public abstract class Entity implements Mover{
 		return y;
 	}
 
-	Entity() {
-		init();
+	public void setY( float f ) {
+		y = f;
+		updateBoundingShape();
 	}
 
 	public abstract void applyPowerUp( int powerUpType );
-
-	protected abstract void init();
 
 	public void moveRight( int delta ) {
 		if ( horizontalVelocity < maximumSpeed ) {
@@ -108,7 +108,7 @@ public abstract class Entity implements Mover{
 		return boundingShape;
 	}
 
-	public void updateBoundingShape() {
+	void updateBoundingShape() {
 		boundingShape.updatePosition( x, y );
 	}
 
@@ -116,12 +116,12 @@ public abstract class Entity implements Mover{
 		return horizontalVelocity;
 	}
 
-	public float getVerticalVelocity() {
-		return verticalVelocity;
-	}
-
 	public void setHorizontalVelocity( float horizontalVelocity ) {
 		this.horizontalVelocity = horizontalVelocity;
+	}
+
+	public float getVerticalVelocity() {
+		return verticalVelocity;
 	}
 
 	public void setVerticalVelocity( float verticalVelocity ) {

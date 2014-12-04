@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Juego
  */
 public class Physics {
-	public static final float GRAVITY = 0.0015f;
+	private static final float GRAVITY = 0.0015f;
 
 	private void handleEntities( Level level, int delta ) {
 		for ( Entity obj : Level.entities ) {
@@ -116,7 +116,7 @@ public class Physics {
 		leftBehind();
 	}
 
-	public boolean checkCollision( Entity obj, Tile[][] mapTiles ) {
+	boolean checkCollision( Entity obj, Tile[][] mapTiles ) {
 		ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying( mapTiles );
 		for(Tile t : tiles){
 			if(t.getBoundingShape() != null){

@@ -20,11 +20,11 @@ import java.util.ArrayList;
  * Juego
  */
 public class Level {
-	public static ArrayList<Entity> entities;
-	public static ArrayList<Entity> enemies;
-	public        String            levelMap;
-	public        Tile[][]          tiles;
-	public        Player            player;
+	public static  ArrayList<Entity> entities;
+	private static ArrayList<Entity> enemies;
+	private        String            levelMap;
+	private        Tile[][]          tiles;
+	private        Player            player;
 
 	public Level( String level, Player player ) throws SlickException {
 		entities = new ArrayList<>();
@@ -85,7 +85,7 @@ public class Level {
 		}
 	}
 
-	public int getXOffset() {
+	int getXOffset() {
 		int offset_x;
 		int half_width = (int) ( Game_State.width / Game_State.SCALE / 2 );
 		int maxX = Resources.maps.get( levelMap ).getWidth() * 32 - half_width;
@@ -101,7 +101,7 @@ public class Level {
 		return offset_x;
 	}
 
-	public int getYOffset() {
+	int getYOffset() {
 		int offset_y;
 		int half_width = (int) ( Game_State.height / Game_State.SCALE / 2 );
 		int maxX = Resources.maps.get( levelMap ).getHeight() * 32 - half_width;

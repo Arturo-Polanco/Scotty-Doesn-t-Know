@@ -24,7 +24,7 @@ public class Player extends Character {
 		moved = true;
 	}
 
-	public void stand() {
+	void stand() {
 		punching = false;
 		if ( moved ) {
 			width =(int)(Game_State.SCALE *  40);
