@@ -9,13 +9,13 @@ import org.newdawn.slick.GameContainer;
  * Proyecto
  */
 public abstract class Character extends Entity {
-	protected float strength;
+	float strength;
 
 	@Override
 	public void init() {
 	}
 
 	@Override
-	public void update(GameContainer gameContainer, int delta) {
+	public void update( GameContainer gameContainer, int delta ) {
 	}
 }

@@ -25,7 +25,10 @@ public class Resources {
 	private static String[]           levels;
 
 	public Resources() {
-		levels = new String[] { "LevelOne", "LevelTwo", "LevelThree" };
+		levels = new String[3];
+		levels[0] = "LevelOne";
+		levels[1] = "LevelTwo";
+		levels[2] = "LevelThree";
 		images = new HashMap<>();
 		maps = new HashMap<>();
 		sounds = new HashMap<>();
@@ -34,21 +37,40 @@ public class Resources {
 
 		try {
 			/* add tile maps to map hash map */
-			TiledMap map = new TiledMap("res/maps/mapa3.tmx");
+			TiledMap map = new TiledMap( "res/maps/mapa7.tmx" );
 			maps.put( "LevelOne", map );
 			map = new TiledMap("res/maps/mapa.tmx");
 			maps.put( "LevelTwo", map );
 			map = new TiledMap("res/maps/mapa2.tmx");
 			maps.put( "LevelThree", map );
 
-			/* Add power up images to hash map */
+			/* Add images to hash map */
+			images.put( "Loss", loadImage( "res/backgrounds/gameover.png" ) );
+			images.put( "Start", loadImage( "res/backgrounds/inicio.png" ) );
 			images.put( "Background", loadImage( "res/maps/Imgur.png"));
 			images.put( "Background2", loadImage( "res/maps/" + getTiledMap( "LevelOne" ).getMapProperty( "back", "grassy_mountains.png" ) ));
+			images.put( "Background3", loadImage( "res/backgrounds/back.png" ) );
+			/* PowerUps */
 			images.put("FullHealthPowerUp", loadImage("res/sprites/powerup/fullhealth.png"));
 			images.put("SpeedPowerUp", loadImage("res/sprites/powerup/speed.png"));
 			images.put("StrengthPowerUp", loadImage("res/sprites/powerup/strength.png"));
 			images.put("25HealthPowerUp", loadImage("res/sprites/powerup/25health.png"));
 			images.put("SlowSpeedPowerUp", loadImage("res/sprites/powerup/slow.png"));
+			/* Trash */
+			images.put( "banana", loadImage( "res/sprites/assets/banana.png" ) );
+			images.put( "basurero", loadImage( "res/sprites/assets/basurero.png" ) );
+			images.put( "bolaPapel", loadImage( "res/sprites/assets/bolaPapel.png" ) );
+			images.put( "bolsaRuffles", loadImage( "res/sprites/assets/bolsa_rufles.png" ) );
+			images.put( "bolsaSabritas", loadImage( "res/sprites/assets/bolsa_sabritas.png" ) );
+			images.put( "botella", loadImage( "res/sprites/assets/botella.png" ) );
+			images.put( "cajaCarton", loadImage( "res/sprites/assets/caja_carton.png" ) );
+			images.put( "cajaPizza", loadImage( "res/sprites/assets/caja_pizza.png " ) );
+			images.put( "cartonJuice", loadImage( "res/sprites/assets/carton_apple_juice.png" ) );
+			images.put( "cascaraHuevo", loadImage( "res/sprites/assets/cascara_huevo.png" ) );
+			images.put( "lata", loadImage( "res/sprites/assets/lata.png" ) );
+			images.put( "llanta", loadImage( "res/sprites/assets/llanta.png" ) );
+			images.put( "manzana", loadImage( "res/sprites/assets/manzana.png" ) );
+
 
 			/* add Sounds */
 			sounds.put( "punch", loadSound( "res/sounds/punch.wav" ) );
@@ -57,6 +79,8 @@ public class Resources {
 			/* add Audio */
 			audio.put( "song", loadOggAudio( "res/sounds/BloodyTears.ogg" ) );
 			audio.put( "song2", loadOggAudio( "res/sounds/AerisPianoByTannerHelland.ogg" ) );
+			audio.put( "song3", loadOggAudio( "res/sounds/Guile_Theme.ogg" ) );
+			audio.put( "song4", loadOggAudio( "res/sounds/GameOver.ogg" ) );
 			audio.put( "punch", loadWavAudio( "res/sounds/punch.wav" ) );
 		} catch ( Exception e ) {
 			e.printStackTrace();
@@ -99,19 +123,19 @@ public class Resources {
 		return sounds.get( sound );
 	}
 
-	public static Sound loadSound( String path ) throws SlickException {
+	private static Sound loadSound( String path ) throws SlickException {
 		return new Sound( path );
 	}
 
-	public static Music loadMusic( String path ) throws SlickException {
+	private static Music loadMusic( String path ) throws SlickException {
 		return new Music( path );
 	}
 
-	public static Audio loadOggAudio( String path ) throws SlickException, IOException {
+	private static Audio loadOggAudio( String path ) throws SlickException, IOException {
 		return AudioLoader.getAudio( "OGG", ResourceLoader.getResourceAsStream( path ) );
 	}
 
-	public static Audio loadWavAudio( String path ) throws SlickException, IOException {
+	private static Audio loadWavAudio( String path ) throws SlickException, IOException {
 		return AudioLoader.getAudio( "WAV", ResourceLoader.getResourceAsStream( path ) );
 	}
 

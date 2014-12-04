@@ -3,6 +3,8 @@ package game.utils.physics;
 import game.entities.Enemy;
 import game.entities.Entity;
 import game.entities.Player;
+import game.entities.Trash;
+import game.resources.Resources;
 import game.states.Game_State;
 import game.utils.level.Level;
 import game.utils.tiles.Tile;
@@ -16,7 +18,7 @@ import java.util.ArrayList;
  * Juego
  */
 public class Physics {
-	public static final float GRAVITY = 0.0015f;
+	private static final float GRAVITY = 0.0015f;
 
 	private void handleEntities( Level level, int delta ) {
 		for ( Entity obj : Level.entities ) {
@@ -116,7 +118,7 @@ public class Physics {
 		leftBehind();
 	}
 
-	public boolean checkCollision( Entity obj, Tile[][] mapTiles ) {
+	boolean checkCollision( Entity obj, Tile[][] mapTiles ) {
 		ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying( mapTiles );
 		for(Tile t : tiles){
 			if(t.getBoundingShape() != null){
@@ -133,7 +135,7 @@ public class Physics {
 		int i = Level.entities.size()-1;
 		for ( int j = i; j > -1; j-- )
 			/* If enemy is at left of screen constrict player movement within current screen */
-			if ( Level.entities.get(j) instanceof Enemy && Level.entities.get(j).y > Game_State.height * Game_State.SCALE + Level.entities.get( j ).height ) {
+			if ( ( Level.entities.get( j ) instanceof Enemy || Level.entities.get( j ) instanceof Trash ) && Level.entities.get( j ).y > Resources.maps.get( Level.levelMap ).getHeight() * 32 * Game_State.SCALE ) {
 				Level.entities.remove(j);
 				i--;
 			}
@@ -143,12 +145,15 @@ public class Physics {
 	boolean hitDetection( Entity obj ) {
 		for ( Entity entity : Level.entities ) {
 			if ( entity != obj && obj.hitBox.intersects( entity.hitBox ) ) {
+				if ( obj instanceof Player && entity instanceof Trash ) {
+					Level.entities.remove( entity );
+				}
 				if ( entity.punching ) {
 					if ( obj.health > 0 ) {
 						if ( obj instanceof Enemy )
 							obj.health -= .05f;
 						else if ( obj instanceof Player )
-							obj.health -= .01f;
+							obj.health -= .025f;
 					}
 					else
 						obj.health = 0;

@@ -3,6 +3,7 @@ package game.utils.level;
 import game.entities.Enemy;
 import game.entities.Entity;
 import game.entities.Player;
+import game.entities.Trash;
 import game.resources.Resources;
 import game.states.Game_State;
 import game.utils.tiles.AirTile;
@@ -20,15 +21,13 @@ import java.util.ArrayList;
  * Juego
  */
 public class Level {
-	public static ArrayList<Entity> entities;
-	public static ArrayList<Entity> enemies;
-	public        String            levelMap;
-	public        Tile[][]          tiles;
-	public        Player            player;
+	public static  ArrayList<Entity> entities;
+	public static String levelMap;
+	private        Tile[][]          tiles;
+	private        Player            player;
 
 	public Level( String level, Player player ) throws SlickException {
 		entities = new ArrayList<>();
-		enemies = new ArrayList<>();
 		this.player = player;
 		levelMap = level;
 		entities.add( player );
@@ -77,7 +76,10 @@ public class Level {
 				case "Enemy":
 					Entity entity = new Enemy( map.getObjectX( 0, i ), map.getObjectY( 0, i ) );
 					entities.add( entity );
-					enemies.add( entity );
+					break;
+				case "Trash":
+					Entity object = new Trash( map.getObjectX( 0, i ), map.getObjectY( 0, i ) );
+					entities.add( object );
 					break;
 				default:
 					break;
@@ -85,7 +87,7 @@ public class Level {
 		}
 	}
 
-	public int getXOffset() {
+	int getXOffset() {
 		int offset_x;
 		int half_width = (int) ( Game_State.width / Game_State.SCALE / 2 );
 		int maxX = Resources.maps.get( levelMap ).getWidth() * 32 - half_width;
@@ -101,7 +103,7 @@ public class Level {
 		return offset_x;
 	}
 
-	public int getYOffset() {
+	int getYOffset() {
 		int offset_y;
 		int half_width = (int) ( Game_State.height / Game_State.SCALE / 2 );
 		int maxX = Resources.maps.get( levelMap ).getHeight() * 32 - half_width;
@@ -126,16 +128,12 @@ public class Level {
 	}
 
 	public void render( GameContainer gameContainer, Graphics g ) throws SlickException {
-		g.scale( Game_State.SCALE, Game_State.SCALE );
 		int offset_x = getXOffset();
+		int offset_y = getYOffset();
+		g.scale( Game_State.SCALE, Game_State.SCALE );
+
 		renderBackground();
-		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), 0, offset_x / 32, 0, Game_State.width / 32, Game_State.height );
-		g.drawString( "player x: " + player.x, 50, 300 );
-		g.drawString( "player on Ground: " + player.getIsOnGround(), 50, 330 );
-		g.drawString( "player x velo: " + player.getHorizontalVelocity(), 50, 360 );
-		g.drawString( "Enemies: " + entities.size(), 50, 390 );
-		if ( entities.size() > 1 )
-			g.drawString( "Enemy distance: " + enemies.get( 0 ).vector2f.distance( player.vector2f ), 50, 430 );
+		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), -( offset_y % 32 ), offset_x / 32, offset_y / 32, (int) ( Game_State.width / 32 ) + 1, Game_State.height );
 
 		/* Draw Health Bars*/
 		g.setColor( Color.black );
@@ -144,18 +142,18 @@ public class Level {
 		g.fillRect( 15, 15, entities.get( 0 ).health * 4, 20 );
 		g.setColor( Color.red );
 		g.fillRect( 15 + entities.get( 0 ).health * 4, 15, entities.get( 0 ).maxHealth * 4 - entities.get( 0 ).health * 4, 20 );
-		for ( int j = 0; j <= entities.size() - 1; j++ ) {
+		for ( int j = 1; j <= entities.size() - 1; j++ ) {
 			if ( entities.get( j ) instanceof game.entities.Character ) {
 				g.setColor( Color.black );
-				g.drawRect( entities.get( j ).x - offset_x, entities.get( j ).y - 10, 40, 10 );
-				g.setColor( Color.green );
-				g.fillRect( entities.get( j ).x - offset_x, entities.get( j ).y - 10, entities.get( j ).health * .4f, 10 );
+				g.drawRect( entities.get( j ).x - offset_x, entities.get( j ).y - offset_y - 10, entities.get( j ).maxHealth, 10 );
+				g.setColor( Color.red );
+				g.fillRect( entities.get( j ).x - offset_x, entities.get( j ).y - offset_y - 10, entities.get( j ).health, 10 );
 			}
 		}
 
 	/* Draw Characters to screen */
 		g.setColor( Color.white );
 		for ( Entity entity : entities )
-			entity.render( offset_x, entity.getY() );
+			entity.render( offset_x, offset_y );
 	}
 }

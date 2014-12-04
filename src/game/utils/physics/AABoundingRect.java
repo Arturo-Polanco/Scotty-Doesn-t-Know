@@ -15,10 +15,10 @@ import java.util.ArrayList;
  * Juego
  */
 public class AABoundingRect extends BoundingShape{
-	public float x;
-	public float y;
-	public float width;
-	public float height;
+	private float x;
+	private float y;
+	private float width;
+	private float height;
 
 	public AABoundingRect( float x, float y, float width, float height ) {
 		this.x = x;

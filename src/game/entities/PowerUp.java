@@ -2,6 +2,7 @@ package game.entities;
 
 import game.resources.Resources;
 import game.states.Game_State;
+import game.utils.physics.AABoundingRect;
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
@@ -35,6 +36,7 @@ public class PowerUp extends Entity {
 		width = 32;
 		height = 32;
 		hitBox = new Rectangle(x, y, x + width, y + height);
+		boundingShape = new AABoundingRect( x, y, width, height );
 		powerUpType = new Random().nextInt(5);
 		try {
 			image = new Image(width, height);

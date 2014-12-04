@@ -1,8 +1,8 @@
 package game.utils.input;
 
 import game.entities.Player;
+import game.utils.level.Level;
 import org.newdawn.slick.Input;
-import game.utils.level.*;
 
 /**
  * ARTURO POLANCO CARRILLO
@@ -11,11 +11,11 @@ import game.utils.level.*;
  * Juego
  */
 public abstract class PlayerController {
-	protected Player player;
+	Player player;
 
-	public PlayerController(Player player){
+	PlayerController( Player player ) {
 		this.player = player;
 	}
 
-	public abstract void handleInput(Input input,int delta, Level level );
+	public abstract void handleInput( Input input, int delta, Level level );
 }

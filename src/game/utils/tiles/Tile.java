@@ -9,11 +9,11 @@ import game.utils.physics.BoundingShape;
  * Juego
  */
 public class Tile {
-	protected BoundingShape boundingShape;
-	protected int           x;
-	protected int           y;
+	BoundingShape boundingShape;
+	private int x;
+	private int y;
 
-	public Tile( int x, int y ) {
+	Tile( int x, int y ) {
 		this.x = x;
 		this.y = y;
 	}

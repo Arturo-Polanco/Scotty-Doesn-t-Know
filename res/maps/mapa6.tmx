@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="60" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="suelo" tilewidth="32" tileheight="32">
+  <image source="test.png" width="192" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="37" name="back" tilewidth="32" tileheight="32">
+  <image source="tiled.png" width="160" height="192"/>
+  <tile id="5">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="67" name="try" tilewidth="32" tileheight="32">
+  <image source="try.png" width="128" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="99" name="dirt" tilewidth="32" tileheight="32">
+  <image source="dirt3.png" width="256" height="128"/>
+ </tileset>
+ <layer name="Back" width="240" height="60">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3cQW4bMQxGYa9yk7jtKQLk/odqCzQbw5ohRUoeNJ+BtwliifzNFw08sd9ut9vbA+9/uD/h18Pv/Xzys2f8SPzuI2fPO6r163G0f7TXTB+ZNSM9VvKr5pOttau26J6j2qNrV7LtriU7Nytz7cqIv+v8nVmfv/nXib9ztX49+Mvf0drd/n4Wann/9/zo3KzMNdJXBP5ey9/Z13HVnF3NX+dvbg/+1mtx/vJ3pq8I/OUvf/fn2pURf/nL3/25dmXEX/7yd3+uXRnxl7/83Z9rV0b85S9/9+falRF/+cvf/bl2ZVTxN7J/5p45f/l7BH/z89LhbzQz/vL3CP7m54W/9Vr4y9+ZviLwl7/8XZNr9H9hKxmd7fE/+HvW43f39ygf/j7PNfKezlXO37NaX+Fv5nMkkfN39nMD1Xyyte6esyNnImtXsu2u5cqfP3L97Pp5xZw5f9fk2pURf/nL3/25dmXEX/7yd3+uXRnxl7/83Z/rY1+v+P6NyP7Z/7+K9LHC38r7V5V8srXunrNR7a/yt/r9OZm5WZlrV0bOX+fvdzp/u95/jqwT/Zt9L2QUuf97VuvR/pnMon1kX4ezHiv5VfPJ1rp7zka1Z+4fdflbreWq948q89dx/h7tnzkro310n7+V/Kr5ZGvdPWej2qNrV7LtruWq189/n/sxmVGXv6P9s/5G+ljh72x+1Xyyte6es1HtGX9ns+2uZYW/H5O5Pva14/wd1Xq0f7TXTB+ZNSM9VvKr5pOtdfecjWqPrl3JtruW7NxEcr0frHM1f0e1Hu3v+vka/s7O2ah218/8ne2Dv/vmbFQ7f/k72wd/983ZqHb+8ne2D/7um7NR7fzl72wf/N03Z6Par+Zv9P5vZm4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABm+A2ESlSBAOEAAA==
+  </data>
+ </layer>
+ <layer name="Floor" width="240" height="60" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3DMQ0AAAwEoZvev+SK6AoJq6aqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqvh4dYzjZAOEAAA==
+  </data>
+ </layer>
+ <objectgroup name="Objects" visible="0"/>
+</map>

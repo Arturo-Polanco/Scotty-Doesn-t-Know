@@ -36,8 +36,8 @@ class Game extends StateBasedGame {
 	}
 
 	public void initStatesList( GameContainer gameContainer ) throws SlickException {
-		gameContainer.setMaximumLogicUpdateInterval(240);
-		gameContainer.setTargetFrameRate(240);
+		gameContainer.setMaximumLogicUpdateInterval( 120 );
+		gameContainer.setTargetFrameRate( 120 );
 		gameContainer.setAlwaysRender(true);
 		gameContainer.setShowFPS( false );
 

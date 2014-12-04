@@ -24,7 +24,7 @@ public class Player extends Character {
 		moved = true;
 	}
 
-	public void stand() {
+	void stand() {
 		punching = false;
 		if ( moved ) {
 			width =(int)(Game_State.SCALE *  40);
@@ -43,6 +43,7 @@ public class Player extends Character {
 
 	/* fixme punch method does not take collision into account and should invalidate move()*/
 	public void punch() {
+		punching = true;
 		if ( punched )
 			try {
 				width = (int)(Game_State.SCALE * 70);
@@ -65,8 +66,8 @@ public class Player extends Character {
 		width = (int)(Game_State.SCALE * 40);
 		height = (int)(Game_State.SCALE * 60);
 		strength = .5f;
-		maxHealth = 100;
-		health = 75;
+		health = maxHealth = 100;
+
 		x = 200;
 		y = Game_State.height-height*2;
 		vector2f = new Vector2f(x, y);
@@ -99,7 +100,7 @@ public class Player extends Character {
 		try {
 
 		/* If player is not moving or attacking, show waiting animation */
-			if ( !input.isKeyDown(Input.KEY_LEFT) && !input.isKeyDown(Input.KEY_RIGHT) && !input.isKeyDown(Input.KEY_SPACE) && !input.isKeyDown(Input.KEY_A) && !input.isKeyDown(Input.KEY_D) && !input.isKeyDown( Input.KEY_R ) )
+			if ( !input.isKeyDown( Input.KEY_LEFT ) && !input.isKeyDown( Input.KEY_RIGHT ) && !input.isKeyDown( Input.KEY_SPACE ) && !input.isKeyDown( Input.KEY_A ) && !input.isKeyDown( Input.KEY_D ) && !input.isKeyDown( Input.KEY_E ) )
 				stand();
 
 		/* If player inputs left animate left movement */
@@ -119,7 +120,7 @@ public class Player extends Character {
 			}
 
 		/* If player is moving up or down show animation for last x axis direction moved */
-			if ( input.isKeyPressed(Input.KEY_UP) || input.isKeyPressed(Input.KEY_DOWN) || input.isKeyPressed( Input.KEY_SPACE )) {
+			if ( input.isKeyPressed( Input.KEY_UP ) || input.isKeyPressed( Input.KEY_SPACE ) ) {
 				moved = true;
 				/* modify player width to match animation - should be 52 for 1:1 scale */
 				width =(int)(Game_State.SCALE *  52);

@@ -12,22 +12,21 @@ import java.util.ArrayList;
  * Juego
  */
 public abstract class BoundingShape {
+	protected abstract boolean checkTileCollision( AABoundingRect box );
 
-	public boolean checkCollision(BoundingShape bs){
-		if(bs instanceof AABoundingRect)
+	public boolean checkCollision( BoundingShape bs ) {
+		if ( bs instanceof AABoundingRect )
 			return checkTileCollision( (AABoundingRect) bs );
 		return false;
 	}
 
-	public abstract boolean checkTileCollision( AABoundingRect box );
-
 	public abstract boolean checkEntityCollision( Entity entity );
 
-	public abstract void updatePosition(float newX, float newY);
+	public abstract void updatePosition( float newX, float newY );
 
-	public abstract void movePosition(float x, float y);
+	public abstract void movePosition( float x, float y );
 
-	public abstract ArrayList<Tile> getTilesOccupying(Tile[][] tiles);
+	public abstract ArrayList<Tile> getTilesOccupying( Tile[][] tiles );
 
-	public abstract ArrayList<Tile> getGroundTiles(Tile[][] tiles);
+	public abstract ArrayList<Tile> getGroundTiles( Tile[][] tiles );
 }

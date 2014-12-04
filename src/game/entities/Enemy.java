@@ -120,7 +120,7 @@ public class Enemy extends Character{
 		this.vector2f.set( this.hitBox.getCenterX(), this.hitBox.getCenterY() );
 	}
 
-	public void followPlayer( int delta ) {
+	void followPlayer( int delta ) {
 		/* Move X axis towards PLayer */
 		if ( Level.entities.get( 0 ).hitBox.getCenterX() < this.hitBox.getCenterX() && Level.entities.get( 0 ).hitBox.getMaxX() < this.x ) {
 			if ( movedRight )
@@ -134,11 +134,11 @@ public class Enemy extends Character{
 		}
 	}
 
-	public void updateBoundingShape() {
-		boundingShape.updatePosition(x,y);
-	}
-
 	@Override
 	public void applyPowerUp( int powerUpType ) {
+	}
+
+	public void updateBoundingShape() {
+		boundingShape.updatePosition( x, y );
 	}
 }
