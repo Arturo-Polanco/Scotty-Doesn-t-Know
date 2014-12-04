@@ -1,4 +1,4 @@
-Proyecto-POOA
+Scotty Doesn't Know
 =============
 
 Juego proyecto POOA 2014-2
