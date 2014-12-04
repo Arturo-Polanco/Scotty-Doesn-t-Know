@@ -3,6 +3,7 @@ package game.utils.level;
 import game.entities.Enemy;
 import game.entities.Entity;
 import game.entities.Player;
+import game.entities.Trash;
 import game.resources.Resources;
 import game.states.Game_State;
 import game.utils.tiles.AirTile;
@@ -78,6 +79,10 @@ public class Level {
 					Entity entity = new Enemy( map.getObjectX( 0, i ), map.getObjectY( 0, i ) );
 					entities.add( entity );
 					enemies.add( entity );
+					break;
+				case "Trash":
+					Entity object = new Trash( map.getObjectX( 0, i ), map.getObjectY( 0, i ) );
+					entities.add( object );
 					break;
 				default:
 					break;

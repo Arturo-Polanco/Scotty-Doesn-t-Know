@@ -37,7 +37,7 @@ public class Resources {
 
 		try {
 			/* add tile maps to map hash map */
-			TiledMap map = new TiledMap( "res/maps/mapa6.tmx" );
+			TiledMap map = new TiledMap( "res/maps/mapa5.tmx" );
 			maps.put( "LevelOne", map );
 			map = new TiledMap("res/maps/mapa.tmx");
 			maps.put( "LevelTwo", map );

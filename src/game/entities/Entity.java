@@ -44,7 +44,7 @@ public abstract class Entity implements Mover{
 	private float horizontalVelocity = 0;
 	private float maxFallRate        = .6f;
 
-	Entity() {
+	public Entity() {
 		init();
 	}
 
