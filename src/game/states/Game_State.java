@@ -47,7 +47,6 @@ public class Game_State extends BasicGameState {
 		physics = new Physics();
 		level = new Level( Resources.getLevel( 0 ), player );
 		SoundStore.get().setMusicVolume( 0.6f );
-		Resources.getAudio( "song" ).playAsMusic( 1.0f, 1.0f, true );
 	}
 
 	public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
@@ -79,6 +78,8 @@ public class Game_State extends BasicGameState {
 			SoundStore.get().poll( delta );
 			if ( !Resources.getAudio( "song" ).isPlaying() ) {
 				Resources.getAudio( "song2" ).stop();
+				Resources.getAudio( "song3" ).stop();
+				Resources.getAudio( "song4" ).stop();
 				Resources.getAudio( "song" ).playAsMusic( 1.0f, 1.0f, true );
 			}
 

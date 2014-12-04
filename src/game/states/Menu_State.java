@@ -1,7 +1,10 @@
 package game.states;
 
 import game.resources.Resources;
-import org.newdawn.slick.*;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -12,11 +15,6 @@ import org.newdawn.slick.state.StateBasedGame;
  * Proyecto
  */
 public class Menu_State extends BasicGameState {
-	boolean up    = false;
-	boolean down  = false;
-	boolean left  = false;
-	boolean right = false;
-	Input input;
 
 	public int getID() {
 		return States.MENU;
@@ -26,31 +24,15 @@ public class Menu_State extends BasicGameState {
 	}
 
 	public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
-		g.scale( Game_State.SCALE, Game_State.SCALE );
-		g.setBackground(Color.gray);
 		Resources.getImage( "Start" ).draw( 0, 0, Game_State.width, Game_State.height );
-		g.setColor(Color.black);
-		g.drawString("Menu State", 150, 150);
-		if ( up )
-			g.drawString("Player inputs UP", 200, 200);
-		if ( down )
-			g.drawString("Player inputs DOWN", 200, 220);
-		if ( left )
-			g.drawString("Player inputs LEFT", 200, 240);
-		if ( right )
-			g.drawString("Player inputs RIGHT", 200, 260);
 	}
 
 	public void update(GameContainer gameContainer, StateBasedGame stateBasedGame, int delta) throws SlickException {
-		input = gameContainer.getInput();
-
-		/* testing controller input */
-		up = input.isControllerUp(0);
-		down = input.isControllerDown(0);
-		right = input.isControllerRight(0);
-		left = input.isControllerLeft(0);
-		if ( Resources.getAudio( "song" ).isPlaying() ) {
+		Input input = gameContainer.getInput();
+		if ( !Resources.getAudio( "song3" ).isPlaying() ) {
 			Resources.getAudio( "song" ).stop();
+			Resources.getAudio( "song2" ).stop();
+			Resources.getAudio( "song4" ).stop();
 			Resources.getAudio( "song3" ).playAsMusic( 1.0f, 1.0f, true );
 		}
 
@@ -59,6 +41,4 @@ public class Menu_State extends BasicGameState {
 		if ( input.isKeyPressed(Input.KEY_ESCAPE) || input.isControlPressed(7) )
 			gameContainer.exit();
 	}
-
-	/* todo Menu state needs to be created in order to allow access to game options*/
 }

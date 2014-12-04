@@ -1,9 +1,13 @@
 package game.states;
 
 import game.entities.Player;
+import game.resources.Resources;
 import game.utils.input.KeyboardPlayerInput;
 import game.utils.level.Level;
-import org.newdawn.slick.*;
+import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Input;
+import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -24,13 +28,19 @@ public class Win_State extends BasicGameState {
 	}
 
 	public void render( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g ) throws SlickException {
-		g.setBackground( Color.gray );
-		g.setColor( Color.black );
-		g.drawString( "Win State", 150, 150 );
+		Resources.getImage( "Start" ).draw( 0, 0, Game_State.width, Game_State.height );
+
 	}
 
 	public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
 		Input input = gameContainer.getInput();
+		if ( !Resources.getAudio( "song2" ).isPlaying() ) {
+			Resources.getAudio( "song" ).stop();
+			Resources.getAudio( "song3" ).stop();
+			Resources.getAudio( "song4" ).stop();
+			Resources.getAudio( "song2" ).playAsMusic( 1.0f, 1.0f, true );
+		}
+
 		if ( input.isKeyPressed( Input.KEY_ENTER ) ) {
 			Game_State.player = new Player();
 			Game_State.playerController = new KeyboardPlayerInput( Game_State.player );
