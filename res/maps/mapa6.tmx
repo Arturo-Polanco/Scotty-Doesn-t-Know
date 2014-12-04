@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="60" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="suelo" tilewidth="32" tileheight="32">
+  <image source="test.png" width="192" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="37" name="back" tilewidth="32" tileheight="32">
+  <image source="tiled.png" width="160" height="192"/>
+ </tileset>
+ <layer name="Back" width="240" height="60">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dMQqAMAwF0IDStfe/rasUKUrR2PKGNybQ4Q+BlJSIKAAAAAAAAAAAAAAAAAAAH9ke2Afr7/QD+kbyI3+Q443M1ZPs9wFAa2RONEcCAAAAAAAAAPzb1T6HfQ9YlyzDPGr4awAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM+rdBMzifhkAqzoAqFg6UgDhAAA=
+  </data>
+ </layer>
+ <layer name="Floor" width="240" height="60">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3dy2rCQABA0UBLXwuz0f//1SpSCFJoDFrnylkcskqYLC6TkTGZp2l6A5LmAcYAbKNf6NIvdOkXuvQLXfqFLv1Cl36hS7/QpV/o0i906Re69Atd+oUu/ULXyP2+r/Bx9Hn0tfH8a64Hoxmt32VL84Xfxr502eJf50PdYYAxnGgOrnfq9+WOXge4R3hWW9aI1pEwht10fk7d3di8OD76HuFZ/TS2v7HD4vjoe4Rn5Xci6PKMC136hS79Qpd+oUu/0HXvfu33gPsZYf693POsZVhnhH6BbfQLXfqFLvsnoevUrv8YQJO5F7r0C136hS79Qpd+oUu/0KVf6NIvdOkXuvQLXfqFLv1Cl36hS7/QpV/o0i906Re6vHsDusy/0KVf6NIvdFn/Qpf3t0PXfjrPwWu/E/gffL8M1vkG5PnHuwDhAAA=
+  </data>
+ </layer>
+ <layer name="Front" width="240" height="60">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+3awQkAAAgDMUH3n9kBfCsICdwA/TcCAAAAAAAAAAAAAAAAAAAAAAB+ysXqcAcAAAAAAAAAAJNfBwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHzVHM3L0AOEAAA==
+  </data>
+ </layer>
+ <objectgroup name="Enemies" width="240" height="60">
+  <object name="Enemy" type="Enemy" x="1300" y="234" width="50" height="60"/>
+ </objectgroup>
+</map>

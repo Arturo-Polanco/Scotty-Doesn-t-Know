@@ -3,6 +3,7 @@ package game.utils.physics;
 import game.entities.Enemy;
 import game.entities.Entity;
 import game.entities.Player;
+import game.resources.Resources;
 import game.states.Game_State;
 import game.utils.level.Level;
 import game.utils.tiles.Tile;
@@ -133,7 +134,7 @@ public class Physics {
 		int i = Level.entities.size()-1;
 		for ( int j = i; j > -1; j-- )
 			/* If enemy is at left of screen constrict player movement within current screen */
-			if ( Level.entities.get(j) instanceof Enemy && Level.entities.get(j).y > Game_State.height * Game_State.SCALE + Level.entities.get( j ).height ) {
+			if ( Level.entities.get( j ) instanceof Enemy && Level.entities.get( j ).y > Resources.maps.get( Level.levelMap ).getHeight() * 32 * Game_State.SCALE ) {
 				Level.entities.remove(j);
 				i--;
 			}

@@ -90,7 +90,7 @@ public class Game_State extends BasicGameState {
 	void gameStatus() {
 		if ( Level.entities.size() == 1 && Level.entities.get( 0 ) instanceof Player )
 			Game_State.stateGame.enterState( States.WIN );
-		if ( player.getY() > Game_State.height * Game_State.SCALE + 32 || player.health <= 0 )
+		if ( player.getY() > Resources.maps.get( Level.levelMap ).getHeight() * 32 * Game_State.SCALE || player.health <= 0 )
 			Game_State.stateGame.enterState( States.LOSE );
 	}
 }

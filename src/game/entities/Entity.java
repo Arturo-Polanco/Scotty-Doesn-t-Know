@@ -152,9 +152,9 @@ public abstract class Entity implements Mover{
 
 	public void render( float x, float y ) {
 		if ( anime != null )
-			anime.draw( this.x - x, y, width, height );
+			anime.draw( this.x - x, this.y - y, width, height );
 		if ( image != null )
-			image.draw( this.x - x, y );
+			image.draw( this.x - x, this.y - y );
 	}
 
 	public abstract void update( GameContainer gameContainer, int delta );

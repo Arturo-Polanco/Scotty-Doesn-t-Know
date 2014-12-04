@@ -21,8 +21,8 @@ import java.util.ArrayList;
  */
 public class Level {
 	public static  ArrayList<Entity> entities;
+	public static String levelMap;
 	private static ArrayList<Entity> enemies;
-	private        String            levelMap;
 	private        Tile[][]          tiles;
 	private        Player            player;
 
@@ -127,10 +127,11 @@ public class Level {
 
 	public void render( GameContainer gameContainer, Graphics g ) throws SlickException {
 		int offset_x = getXOffset();
+		int offset_y = getYOffset();
 		g.scale( Game_State.SCALE, Game_State.SCALE );
 
 		renderBackground();
-		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), 0, offset_x / 32, 0, Game_State.width / 32, Game_State.height );
+		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), -( offset_y % 32 ), offset_x / 32, offset_y / 32, Game_State.width / 32, Game_State.height );
 
 		/* Draw Health Bars*/
 		g.setColor( Color.black );
@@ -142,15 +143,15 @@ public class Level {
 		for ( int j = 1; j <= entities.size() - 1; j++ ) {
 			if ( entities.get( j ) instanceof game.entities.Character ) {
 				g.setColor( Color.black );
-				g.drawRect( entities.get( j ).x - offset_x, entities.get( j ).y - 10, entities.get( j ).maxHealth, 10 );
+				g.drawRect( entities.get( j ).x - offset_x, entities.get( j ).y - offset_y - 10, entities.get( j ).maxHealth, 10 );
 				g.setColor( Color.red );
-				g.fillRect( entities.get( j ).x - offset_x, entities.get( j ).y - 10, entities.get( j ).health, 10 );
+				g.fillRect( entities.get( j ).x - offset_x, entities.get( j ).y - offset_y - 10, entities.get( j ).health, 10 );
 			}
 		}
 
 	/* Draw Characters to screen */
 		g.setColor( Color.white );
 		for ( Entity entity : entities )
-			entity.render( offset_x, entity.getY() );
+			entity.render( offset_x, offset_y );
 	}
 }
