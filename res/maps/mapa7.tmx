@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="60" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="suelo" tilewidth="32" tileheight="32">
+  <image source="test.png" width="192" height="192"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="37" name="back" tilewidth="32" tileheight="32">
+  <image source="tiled.png" width="160" height="192"/>
+  <tile id="5">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="6">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="8">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="18">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="67" name="try" tilewidth="32" tileheight="32">
+  <image source="try.png" width="128" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="75" name="dirt" tilewidth="32" tileheight="32">
+  <image source="dirt3.png" width="256" height="128"/>
+  <tile id="12">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="14">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="20">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Back" width="240" height="60">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2cUY7bMAxE9dWbVNueYoHe/1DdIGu0MSiKNBmRlGeA+dnYMiXyLR3LSGuv+vHln1/uhH9/f374F/E3yh+KY8+encfFeoi7vnSu0nk8xvvDjHc+fzbex/d41DGNOc9rfTT50ObZo85G15SOzcXMfXb8/ZAmLq4+NMdR8lpXS14118jILzfeFX5HxzTmPM38wO9afiVxSY6j5LWulrxqrgF+wS/4fY3jHfyO7gEt9TKL9RD49eOXyyP43Zdf9N89+EX/Bb8ag9/3Pb+6kh/wK+eXyhv4vR+/6L81+bX2Xzx/firz/tHsuUBnrtmY8zTzy87vle/c0fyO8ob9o/z8cuNp+++oDo78zdYvO7+SWr7afyVjc99P3sWvpN5w//xP1fn9HBzTmPM088vefyveP4/yBn7r8PtJjIf+ex9+Z3FR9aE5jpLXulryqrmGtT6l91nSeeD+GfxyeUP/9edXMlfpPMAv+OXyBn7B7//5m63fHfi17LOCX/CrGQ/8+vOL/vsah8e+nCWv0tx51Cf4zb9/xNXZaH00+0er+ZXu/87yRklzDfRf//lo3ATHSHJZuf/2wefSsUfnz+Yz43eFKXmtqyWvmmuAX97Z+6+1zh7HW/ZZR+fP5gN+feod/PKuwi+3F2rtv9zYo/Nn8wG/PvWeiV+Jznm3arZ+Vfi9Wmd98Pnq++dVmtWb17pa8qq5BvgFv+D39fN38Bvx+xuSPIBfXX6u7MVaYptdc8SfF7+j+dyNX/Tfp7Lyi/6rm092fq37ctI1stSLR316vv8sUQS/s/lp8nNlL9aSu1kNjK7pwS/3WXZ+retqyavmGui/dkY0+bnCUlVz8zn+j63WrN40Na3hd7THZqkXaazgd86vND9X9mKrmptPlf57dV/uvA7ov09F8jvKpSY/6L+1+OVqegW/s+/Y1fj1vu+arR/un8HvqKaz9F/L+7136r+j+WnyY+W3ksDvGn5nsYJf8HtF4Bf8ngV+6wj8gt+zwG8dVeU3k8Evr+j8aNZnJ34z7/9mshe/o+fY2vevuOfhEoHfOuL4Rf9dyy/6L/jV6lEHFd/fyGTJ/q/l/V5N/+XG8ZpPZe/I76z/Rq43pega0K6T9fmMpv9y43jNp7I9fp8kk7l8Z5gnpeg1066T9f1eLb/W93sz5P1dBr9rTSl6zbTrZH2/V/qu92wcr/lUNvhda0rRa6ZdJ9w/5zH4XWtK0WumXSfwm8fgd60pRa+Zdp3Abx7vxm92U4qO6WzwW8fgd60pRcd0NvitY/C71pSiY9rdO9c3+F1rStEx7e6d6xv8rjWl6Jh29871bfmdflhvStEx7e7d+d15ftlMKTqm3b1zfffN55fNlKJjguu6N/C70pSiY4Lrure9fr89uylFxwTXdW/ovytNKTomuK57A78rLVF0jHAd9wZ+V1qi6BjhOu4N/K60RNExwnXcG/hdaYmiY4TruDfwu9ISRccIwzBtiaJjhGGYtkTRMcIwTPuhvzEdl4gA4QAA
+  </data>
+ </layer>
+ <layer name="Floor" width="240" height="60">
+  <data encoding="base64" compression="gzip">
+   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
+  </data>
+ </layer>
+ <objectgroup name="Objects" width="240" height="60">
+  <object name="Trash" type="Trash" x="2432" y="1754" width="32" height="32"/>
+  <object name="Enemy" type="Enemy" x="1960" y="1720" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="671" y="882" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="2615" y="1270" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="3183" y="358" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="4283" y="842" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="5907" y="598" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="6295" y="1694" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="4383" y="1690" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="155" y="1718" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="7539" y="1386" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="6487" y="1174" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="7303" y="370" width="50" height="60"/>
+  <object name="Trash" type="Trash" x="200" y="1320" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="256" y="388" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="1616" y="84" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="5904" y="316" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="5408" y="1360" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="3736" y="1280" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="7464" y="772" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="7124" y="172" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="5536" y="1728" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="4200" y="52" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="3408" y="4" width="32" height="32"/>
+ </objectgroup>
+</map>

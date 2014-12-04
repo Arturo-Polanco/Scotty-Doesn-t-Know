@@ -23,13 +23,11 @@ import java.util.ArrayList;
 public class Level {
 	public static  ArrayList<Entity> entities;
 	public static String levelMap;
-	private static ArrayList<Entity> enemies;
 	private        Tile[][]          tiles;
 	private        Player            player;
 
 	public Level( String level, Player player ) throws SlickException {
 		entities = new ArrayList<>();
-		enemies = new ArrayList<>();
 		this.player = player;
 		levelMap = level;
 		entities.add( player );
@@ -78,7 +76,6 @@ public class Level {
 				case "Enemy":
 					Entity entity = new Enemy( map.getObjectX( 0, i ), map.getObjectY( 0, i ) );
 					entities.add( entity );
-					enemies.add( entity );
 					break;
 				case "Trash":
 					Entity object = new Trash( map.getObjectX( 0, i ), map.getObjectY( 0, i ) );
@@ -136,7 +133,7 @@ public class Level {
 		g.scale( Game_State.SCALE, Game_State.SCALE );
 
 		renderBackground();
-		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), -( offset_y % 32 ), offset_x / 32, offset_y / 32, Game_State.width / 32, Game_State.height );
+		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), -( offset_y % 32 ), offset_x / 32 + 1, offset_y / 32 + 1, Game_State.width / 32 + 1, Game_State.height + 1 );
 
 		/* Draw Health Bars*/
 		g.setColor( Color.black );
