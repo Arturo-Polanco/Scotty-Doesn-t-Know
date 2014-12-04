@@ -1,5 +1,6 @@
 package game.states;
 
+import game.resources.Resources;
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
@@ -22,10 +23,18 @@ public class Lose_State extends BasicGameState {
 		g.setBackground( Color.gray );
 		g.setColor( Color.black );
 		g.drawString( "Lose State", 150, 150 );
+		Resources.getImage( "Loss" ).draw( 0, 0, Game_State.width, Game_State.height );
 	}
 
 	public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
 		Input input = gameContainer.getInput();
+		if ( !Resources.getAudio( "song4" ).isPlaying() ) {
+			Resources.getAudio( "song" ).stop();
+			Resources.getAudio( "song2" ).stop();
+			Resources.getAudio( "song3" ).stop();
+			Resources.getAudio( "song4" ).playAsMusic( 1.0f, 1.0f, true );
+		}
+
 		if ( input.isKeyPressed( Input.KEY_ENTER ) ) {
 			gameContainer.reinit();
 			stateBasedGame.enterState( States.GAME );

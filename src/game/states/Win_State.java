@@ -34,7 +34,15 @@ public class Win_State extends BasicGameState {
 		if ( input.isKeyPressed( Input.KEY_ENTER ) ) {
 			Game_State.player = new Player();
 			Game_State.playerController = new KeyboardPlayerInput( Game_State.player );
-			Game_State.level = new Level( "LevelTwo", Game_State.player );
+			if ( i == 0 )
+				Game_State.level = new Level( "LevelTwo", Game_State.player );
+			else if ( i == 1 )
+				Game_State.level = new Level( "LevelTwo", Game_State.player );
+			else if ( i == 2 )
+				Game_State.level = new Level( "LevelThree", Game_State.player );
+			else
+				gameContainer.reinit();
+			i++;
 			stateBasedGame.enterState( States.GAME );
 		}
 		

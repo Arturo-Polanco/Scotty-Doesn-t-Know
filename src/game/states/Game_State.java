@@ -1,5 +1,6 @@
 package game.states;
 
+import game.entities.Enemy;
 import game.entities.Entity;
 import game.entities.Player;
 import game.resources.Resources;
@@ -62,9 +63,10 @@ public class Game_State extends BasicGameState {
 			playerController.handleInput( input, delta, level );
 
 			physics.handlePhysics( level, delta );
-
-			for ( Entity entity : Level.entities )
+			for ( Entity entity : Level.entities ) {
 				entity.update( gameContainer, delta );
+				deadEntity( entity );
+			}
 
 			/* Go from game to menu screen */
 			if ( input.isKeyPressed(Input.KEY_ESCAPE) )
@@ -84,6 +86,11 @@ public class Game_State extends BasicGameState {
 		catch ( Exception e ) {
 			e.printStackTrace();
 		}
+	}
+
+	public void deadEntity( Entity entity ) {
+		if ( entity.health <= 0 && entity instanceof Enemy )
+			Level.entities.remove( entity );
 	}
 
 	public void gameStatus(){

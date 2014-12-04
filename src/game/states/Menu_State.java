@@ -28,6 +28,7 @@ public class Menu_State extends BasicGameState {
 	public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
 		g.scale( Game_State.SCALE, Game_State.SCALE );
 		g.setBackground(Color.gray);
+		Resources.getImage( "Start" ).draw( 0, 0, Game_State.width, Game_State.height );
 		g.setColor(Color.black);
 		g.drawString("Menu State", 150, 150);
 		if ( up )
@@ -50,7 +51,7 @@ public class Menu_State extends BasicGameState {
 		left = input.isControllerLeft(0);
 		if ( Resources.getAudio( "song" ).isPlaying() ) {
 			Resources.getAudio( "song" ).stop();
-			Resources.getAudio( "song2" ).playAsMusic( 1.0f, 1.0f, true );
+			Resources.getAudio( "song3" ).playAsMusic( 1.0f, 1.0f, true );
 		}
 
 		if ( input.isKeyPressed(Input.KEY_ENTER) || input.isControlPressed(8) )
