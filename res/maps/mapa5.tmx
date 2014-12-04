@@ -40,7 +40,7 @@
  <tileset firstgid="839" name="black" tilewidth="32" tileheight="32">
   <image source="tile.png" width="128" height="160"/>
  </tileset>
- <layer name="Background" width="240" height="34">
+ <layer name="Background" width="240" height="34" visible="0">
   <data encoding="base64" compression="gzip">
    H4sIAAAAAAAAC+2c2W7jMAxF005fprPv+4YC7f//4bDAGMgIFHVJyrIc3wJ8SRSKvOKpGMvOw+l0eijsqditYi+Kcc//vfZd7I/iZ7FnxdjaOM1acyCxWvOjuXrysHwueZxbmWNpGf2y+njXo3dsrTlrsaO+M9qi9YHG4qnFtXUlv+T3iPx+Fvsi9lXsmzOWx3EvxV6JvRZ7I/ZWGbcFv1pe5HcMv62a8PiPruNR+P0h9lPsl9hvZyyP496JvRf7IPZR7JMybgt+tbzI7xh+WzXh8R9dx6Pwy/6Z/LJ/Jr8j+EX7YvJLfsnvnPwi/RT5Jb/kdz5+2T+TX/JLfskv+SW/5Jf8kl/yi58jz8Jv5nzTc2bu4bfmc+/nv735zdaZxQzi+1L5Rc6RZ+E3c77pOTP38Fvzuffz3978ZuvMYgbxfan8sn/O8cv+eUydsX8mv+SX/B6RX/Re2IxGrTkugd8yR/KL1wD5xXTVNETvhc08v9CaA4m1J79IHkhM53yWOWr8RvXL6jOaX2+deZ750cZltM3wm4k5oqumoad/Hvn8QjlXT36RPJCYvP1zVL+sPqP59daZ55kfbVxG2wy/mZgjumo1ze+/fv34/bdvnbF/Jr/kl/xeGr97un+D/JJf8vu/nz3dv5Hld437r/bGL3qdhPzug9/e/fN9UKNe/Nbm995/heSxBr9R/VB90OskM/KraePhN6otWh8efmf9/auZ91/2z8fun7c4P6rx2+v3r+6B+c7/11hreVvJC7HWHEis1vxorp48LJ8ao2WOpWX0y+rjXY/RdVaLHfXd8/woG4unFlu69tx/M/WH7L+tnqPFL7r/evjtuf9m+W3l5/E/2/5rMYP4zmjr4Rfdf9FaHM3vXVAjhN9Wz2HN7+UXyWMNfqP6ofyi/mfkV4vdw29UW7Q+tuT3LqhrmdeI77+1WNH918rVk4flc8v9N6LPKH6jdYbseZbv0fuvFYunFlFde+2/W16/QvlF9l/2z/PtvzVmkGu5o/kdvf+S3xi/PX9/g/zG+EWu5R6F38zzC0fkt+fvb5BfXr8arevR+a35JL/H5Bfp5ckv+SW/c/KL9PK9+L0Wu1Lsuhi3vPZE7Mbwd+UYq33W+hwSqzU/mqvm51S8v/xZPpf5z81670b5fDlvdi096xNdx7XqrBa7x3evnGrrhMbiqUUajbZ/+wsJQka3gH8AAA==
   </data>
@@ -50,7 +50,7 @@
    H4sIAAAAAAAAC+2c227kIAyGLXWm7lX3cLXtPsC+/xuW0QiJpeYQwAaSH+nTzCSBGAMBG0/uRPTq+AcA2IY7PcctO94WkAcAUA/Tc9z6T+37/XF8OD4dfxeo/5V4d/xw/HT8cvxeQCbQB9Nz3Pp5eLY8QIdSmi0faAPr53NyNM2WF7TBNGb+xboYAHsw/wIwlhfHLfoMv4+8F5Ot/wqA3XgRuGWuvweEc6P/HCmbZtkAnAGO8GNztlxeNvifAdiTkv27055hr6wadV1Jf5IssY3mf2vYarP0tFIbjIYpP/9KabbMErnUk7envjVpto5CW42j75b2lJaONMqMqbGJc3nD56Xk75KO+e9+3GL9DK6ONG5q8jG128Th2HuU8xaVl/KBxePWH5+tQwBmwfT/uFnFR1WSudf/bBG7cYX4kCvUEfoZC9Mx/3OvDi3bYNS9JFsk5+PJ2UPa+pP8UanYgR5ZbhEp+6w1dqFFtto8qetmPB96Zcb6uYxki+TWWJw5ZykrR7KMbN9a+yw+Prstj5LyJfnnVu56C/l21y/Yg139o0zfbeKVnt2P+101fsMyTvXqMGF+0OBM8RstdbeKU706OZ1KdrrV+tOK2tjpVr1K828qzdaFFmd+VtWi5cPJre+Y9ty7OUJcx5HlYs4pp9nyjUCa56zsBaZr96+j1M4lXq/Q7/lJxUhatP0O/pUd95d32j/qjRU9o121C0zr968d8Xrd4fnYGyvqf8+uxxWB7r8zwm+Hvg1SjLSXmdC/JJ086PHb4f9HIMVIexn9SwffFqvq1zoeDejANG7+ldYDuXh0631By/1sr9ea8ftI1j46pr33A7Gn/GTk/CC9byD3zoFU0qorC7Jp9d8j9q+1HsB5WHV9tztM2P8F+jChf2nqFfoFmjChf2nq1a9vtOIjpHcbxvlr8/TKNzMORPveNeW36CsuN6XTVFma6+faOpf8Xrn3cObqPHP8xvavVnyE9L6tUr74/Kj4jZZywvO5epY4cu/wf/e1fopS+VI9UudDHUptF9Mjdw81Ok3VsdTWr8KxlWImvAxfL47iM4B/AAA=
   </data>
  </layer>
- <objectgroup name="Enemy" width="240" height="34">
+ <objectgroup name="Objects" width="240" height="34">
   <object name="Enemy" type="Enemy" x="1575" y="862" width="50" height="60"/>
   <object name="Enemy" type="Enemy" x="1645" y="636" width="50" height="60"/>
   <object name="Enemy" type="Enemy" x="2093" y="500" width="50" height="60"/>
@@ -69,5 +69,15 @@
   <object name="Enemy" type="Enemy" x="3945" y="910" width="50" height="60"/>
   <object name="Enemy" type="Enemy" x="3733" y="396" width="50" height="60"/>
   <object name="Enemy" type="Enemy" x="2217" y="878" width="50" height="60"/>
+  <object name="Trash" type="Trash" x="1916" y="904" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="2018" y="970" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="848" y="902" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="1462" y="618" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="526" y="360" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="136" y="418" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="664" y="528" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="1640" y="518" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="1588" y="946" width="32" height="32"/>
+  <object name="Trash" type="Trash" x="468" y="966" width="32" height="32"/>
  </objectgroup>
 </map>
