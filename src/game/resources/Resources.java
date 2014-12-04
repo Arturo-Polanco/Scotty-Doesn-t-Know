@@ -49,6 +49,7 @@ public class Resources {
 			images.put( "Start", loadImage( "res/backgrounds/inicio.png" ) );
 			images.put( "Background", loadImage( "res/maps/Imgur.png"));
 			images.put( "Background2", loadImage( "res/maps/" + getTiledMap( "LevelOne" ).getMapProperty( "back", "grassy_mountains.png" ) ));
+			images.put( "Background3", loadImage( "res/backgrounds/back.png" ) );
 			images.put("FullHealthPowerUp", loadImage("res/sprites/powerup/fullhealth.png"));
 			images.put("SpeedPowerUp", loadImage("res/sprites/powerup/speed.png"));
 			images.put("StrengthPowerUp", loadImage("res/sprites/powerup/strength.png"));

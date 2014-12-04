@@ -66,8 +66,8 @@ public class Player extends Character {
 		width = (int)(Game_State.SCALE * 40);
 		height = (int)(Game_State.SCALE * 60);
 		strength = .5f;
-		maxHealth = 100;
-		health = 75;
+		health = maxHealth = 100;
+
 		x = 200;
 		y = Game_State.height-height*2;
 		vector2f = new Vector2f(x, y);

@@ -126,16 +126,11 @@ public class Level {
 	}
 
 	public void render( GameContainer gameContainer, Graphics g ) throws SlickException {
-		g.scale( Game_State.SCALE, Game_State.SCALE );
 		int offset_x = getXOffset();
+		g.scale( Game_State.SCALE, Game_State.SCALE );
+
 		renderBackground();
 		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), 0, offset_x / 32, 0, Game_State.width / 32, Game_State.height );
-		g.drawString( "player x: " + player.x, 50, 300 );
-		g.drawString( "player on Ground: " + player.getIsOnGround(), 50, 330 );
-		g.drawString( "player x velo: " + player.getHorizontalVelocity(), 50, 360 );
-		g.drawString( "Enemies: " + entities.size(), 50, 390 );
-		if ( entities.size() > 1 )
-			g.drawString( "Enemy distance: " + enemies.get( 0 ).vector2f.distance( player.vector2f ), 50, 430 );
 
 		/* Draw Health Bars*/
 		g.setColor( Color.black );
@@ -144,12 +139,12 @@ public class Level {
 		g.fillRect( 15, 15, entities.get( 0 ).health * 4, 20 );
 		g.setColor( Color.red );
 		g.fillRect( 15 + entities.get( 0 ).health * 4, 15, entities.get( 0 ).maxHealth * 4 - entities.get( 0 ).health * 4, 20 );
-		for ( int j = 0; j <= entities.size() - 1; j++ ) {
+		for ( int j = 1; j <= entities.size() - 1; j++ ) {
 			if ( entities.get( j ) instanceof game.entities.Character ) {
 				g.setColor( Color.black );
-				g.drawRect( entities.get( j ).x - offset_x, entities.get( j ).y - 10, 40, 10 );
-				g.setColor( Color.green );
-				g.fillRect( entities.get( j ).x - offset_x, entities.get( j ).y - 10, entities.get( j ).health * .4f, 10 );
+				g.drawRect( entities.get( j ).x - offset_x, entities.get( j ).y - 10, entities.get( j ).maxHealth, 10 );
+				g.setColor( Color.red );
+				g.fillRect( entities.get( j ).x - offset_x, entities.get( j ).y - 10, entities.get( j ).health, 10 );
 			}
 		}
 
