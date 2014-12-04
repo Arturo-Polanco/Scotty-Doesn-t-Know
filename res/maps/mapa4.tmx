@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="240" height="34" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="suelo" tilewidth="32" tileheight="32">
+  <image source="suelo.png" width="128" height="64"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="1">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="9" name="fondo" tilewidth="32" tileheight="32">
+  <image source="tiled.png" width="160" height="192"/>
+ </tileset>
+ <tileset firstgid="39" name="grassy" tilewidth="32" tileheight="32">
+  <image source="grassy_tileset.png" width="640" height="1280"/>
+  <tile id="0">
+   <properties>
+    <property name="tileType" value="air"/>
+   </properties>
+  </tile>
+ </tileset>
+ <tileset firstgid="839" name="black" tilewidth="32" tileheight="32">
+  <image source="tile.png" width="128" height="160"/>
+ </tileset>
+ <layer name="Background" width="240" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2cW08cMQyFF8pLKaUXWtrSu5Dg///DplJH2kaOc06cyWZ2DpJf2FnHPvGHvTNZng+Hw3NmL5NdG/Y6u+7m3+++Jftt+FnsVXZt6TrLamsgsXrro7kyeXg+lzyOLc8xt4h+UX3Y/egdW23NUuyo74i2aH2gsTC1uLau4lf8it/z4fdzsi/JHpJ9JWIRv3F+b5O9SfY22btk7wl9xK/4/ZvX92Q/kv1M9ouIRfzG+b1L9iHZx2T3yT4R+ohf8av5WfPzXvi15sxZ+UXnYvErfvfCrzVnzswvMheLX/G7F341P4tf8St+xa/4Fb/iV/yKX/G7PX5rzwxn4jfyfBPNleW35FPPf/vWmccM4nsUv0gsTC3WdK09M5yJ38jzTTRXlt+STz3/7VtnHjOI71H8IrEwtVjTVfNzjF/Nz2PqTPOz+BW/4neP/KJnmiMa1dY4B37zHGfmt/Uc+1p1Jn4xXS0N0TPNke8v1NZAYvXWR3Nl8kB8HvOZ52jx26pfVB92P0bXGXNm0bouoi1a52gsTC2yuloaMvPzyO8v5Gt566O5MnkgPtn5uVW/qD7sfkT5ZeuMObNoXRfRFq1zNBamFlldrT6uz7+8fvr827fOND+LX/Erfs+N3y2d3xC/4lf8/u9nS+c3ovyucf5qa/yi90nE7zb47T0/PzVq1Ivf0vrs+SskjzX4bdUP1WeW+1ct/FraMPy2aovWB8Nvr/OTvfmduf9qft73/Nzz+VG0//Y6P/kErHf8t8bby+tCXojV1kBi9dZHc2Xy8HxajOY55hbRL6oPux+j66wUO+q75/OjaCxMLdZ07dl/I/WH9N/azFHjF+2/DL89+2+U31p+jP/Z+q/HDOI7oi3DL9p/0Vocze9jo0YIv7WZw1uf5RfJYw1+W/VD+UX9z8ivFTvDb6u2aH2ckt/HRl3zvEZ8/i3FivZfL1cmD8/nKftviz6j+G2tM6Tneb5H918vFqYWUV179d9T3r9C+UX6r+bn+fpviRnkXu5ofkf3X/Hbxm/P/78hftv4Re7l7oXfyPcX9shvz/+/IX51/2q0rnvnt+RT/Ipf8St+xa/4LdllsgvDLrPrlt+9SHbl+LsgrrXe670PidVbH83V8nPIXl9+PJ/L+sfmvXZlvD9fN7qXzP607uNadVaKnfHdK6fSPqGxMLUok8m2b38ACuS5SIB/AAA=
+  </data>
+ </layer>
+ <layer name="Floor" width="240" height="34">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+2c227kIAyGLbVT92rb7VXbfYB9/zdcRiMklppDABtIfqRPM5MEYgwEbDy5EdGL4y8AYBtu9Bi37HhdQB4AQD1Mj3HrP7Xv9+n4cnw7/ixQ/yvxy/HmeHf8dnwsIBPog+kxbv08PFseoEMpzZYPtIH18zk5mmbLezas1plMY+ZfrIsBsAfzLwBjeXI8R5/h95H3YrL1XwGwG08Cz5nrbwHh3Og/R8qmWTYAZ4Aj/NicLZeXDf5nAPakZP/utGfYK6tGXVfSnyRLbKP53xq22iw9rd4GPdcx5edfKc2qe45c6snbU9+aNFtHoa3G0XdLe0pLRxplxtTYxLm84fNS8ndJx/x3P26xfgZXRxo3NfmY2m3icOzdy3mNykv5wOJx64/P1iEAs2D6f9ys4qMqydzrf7aI3bhCfMhOdZwh6076sYLpmP+5V4eWbSDdq+X+ki2SKydnD2nrT/JHpWIHevRTa5+1xi606Kk2T+q6kX2zV5ba67B+LiPZIv63pLPw/ExZuULWkTqR7LP4+Oy2PErKl+R9TrnrLeTbXb9gD3b1jzL9tIlz9jFnzmnJd9X4Dcs41avDhPlBgzPFb7TU3SpO9erkdCrZ6VbrTytqY6db9SrNv6k0WxdanPlZVYuWfzG3vmPac+/mCHEdR5aLOaecZss3Ammes7IXmK7dv45yNH4S+j0/qRhJi7bfwb+y4/7yTvtHvbGiZ7SrdoFp/f61I16vOzwfe2NF/e/Z9bgi0P1PRvjt0LdBipH2MhP6l6STOz1+O/z/CKQYaS+jf+ng22JV/VrHowEdmMbNv9J6IPfOAet9Qcv9bK/XmvF7T9Y+Oqa99wOxp/xg5PwgvW8g986BVNKqKwuyafXfI/avtR7AeVh1fbc7TNj/BfowoX9p6hX6BZowoX9p6tWvb7TiI6R3G8b5a/P0yjczDkT73jXlt+grLjel01RZmuvn2jqX/F6593Dm6jxz/Mb2r1Z8hPS+rVK++Pyo+I2WcsLzuXqWOHLv8H/3tX6KUvlSPVLnQx1KbRfTI3cPNTpN1bHU1i/CsZViJrwM/wC05sTQgH8AAA==
+  </data>
+ </layer>
+ <objectgroup name="Enemy" visible="0" width="240" height="34">
+  <object name="Enemy" type="Enemy" x="1575" y="862" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="1645" y="636" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="2093" y="500" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="3153" y="912" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="981" y="946" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="4777" y="932" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="4445" y="696" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="4793" y="374" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="5641" y="752" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="5201" y="520" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="6523" y="958" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="6465" y="462" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="6825" y="118" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="7477" y="268" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="5807" y="942" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="3945" y="910" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="3733" y="396" width="50" height="60"/>
+  <object name="Enemy" type="Enemy" x="2217" y="878" width="50" height="60"/>
+ </objectgroup>
+</map>
