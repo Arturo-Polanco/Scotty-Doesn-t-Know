@@ -53,6 +53,8 @@ public class Win_State extends BasicGameState {
 			else
 				gameContainer.reinit();
 			i++;
+			Resources.getAudio( "song2" ).stop();
+			Resources.getAudio( "song" ).playAsMusic( 1.f, 1.f, true );
 			stateBasedGame.enterState( States.GAME );
 		}
 		

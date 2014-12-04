@@ -50,11 +50,27 @@ public class Resources {
 			images.put( "Background", loadImage( "res/maps/Imgur.png"));
 			images.put( "Background2", loadImage( "res/maps/" + getTiledMap( "LevelOne" ).getMapProperty( "back", "grassy_mountains.png" ) ));
 			images.put( "Background3", loadImage( "res/backgrounds/back.png" ) );
+			/* PowerUps */
 			images.put("FullHealthPowerUp", loadImage("res/sprites/powerup/fullhealth.png"));
 			images.put("SpeedPowerUp", loadImage("res/sprites/powerup/speed.png"));
 			images.put("StrengthPowerUp", loadImage("res/sprites/powerup/strength.png"));
 			images.put("25HealthPowerUp", loadImage("res/sprites/powerup/25health.png"));
 			images.put("SlowSpeedPowerUp", loadImage("res/sprites/powerup/slow.png"));
+			/* Trash */
+			images.put( "banana", loadImage( "res/sprites/assets/banana.png" ) );
+			images.put( "basurero", loadImage( "res/sprites/assets/basurero.png" ) );
+			images.put( "bolaPapel", loadImage( "res/sprites/assets/bolaPapel.png" ) );
+			images.put( "bolsaRuffles", loadImage( "res/sprites/assets/bolsa_rufles.png" ) );
+			images.put( "bolsaSabritas", loadImage( "res/sprites/assets/bolsa_sabritas.png" ) );
+			images.put( "botella", loadImage( "res/sprites/assets/botella.png" ) );
+			images.put( "cajaCarton", loadImage( "res/sprites/assets/caja_carton.png" ) );
+			images.put( "cajaPizza", loadImage( "res/sprites/assets/caja_pizza.png " ) );
+			images.put( "cartonJuice", loadImage( "res/sprites/assets/carton_apple_juice.png" ) );
+			images.put( "cascaraHuevo", loadImage( "res/sprites/assets/cascara_huevo.png" ) );
+			images.put( "lata", loadImage( "res/sprites/assets/lata.png" ) );
+			images.put( "llanta", loadImage( "res/sprites/assets/llanta.png" ) );
+			images.put( "manzana", loadImage( "res/sprites/assets/manzana.png" ) );
+
 
 			/* add Sounds */
 			sounds.put( "punch", loadSound( "res/sounds/punch.wav" ) );

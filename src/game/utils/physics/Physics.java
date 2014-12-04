@@ -145,12 +145,15 @@ public class Physics {
 	boolean hitDetection( Entity obj ) {
 		for ( Entity entity : Level.entities ) {
 			if ( entity != obj && obj.hitBox.intersects( entity.hitBox ) ) {
+				if ( obj instanceof Player && entity instanceof Trash ) {
+					Level.entities.remove( entity );
+				}
 				if ( entity.punching ) {
 					if ( obj.health > 0 ) {
 						if ( obj instanceof Enemy )
 							obj.health -= .05f;
 						else if ( obj instanceof Player )
-							obj.health -= .01f;
+							obj.health -= .025f;
 					}
 					else
 						obj.health = 0;

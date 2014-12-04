@@ -24,7 +24,7 @@ public class Trash extends GameObject {
 	}
 
 	protected void init() {
-		trashType = (int) ( Math.random() * 5 );
+		trashType = (int) ( Math.random() * 13 );
 		vector2f = new Vector2f( x, y );
 		width = 32;
 		height = 32;
@@ -41,15 +41,32 @@ public class Trash extends GameObject {
 		try {
 			image = new Image( width, height );
 			if ( trashType == 0 )
-				image = Resources.getImage( "FullHealthPowerUp" );
+				image = Resources.getImage( "banana" );
 			if ( trashType == 1 )
-				image = Resources.getImage( "SpeedPowerUp" );
+				image = Resources.getImage( "basurero" );
 			if ( trashType == 2 )
-				image = Resources.getImage( "StrengthPowerUp" );
+				image = Resources.getImage( "bolaPapel" );
 			if ( trashType == 3 )
-				image = Resources.getImage( "25HealthPowerUp" );
+				image = Resources.getImage( "bolsaRuffles" );
 			if ( trashType == 4 )
-				image = Resources.getImage( "SlowSpeedPowerUp" );
+				image = Resources.getImage( "bolsaSabritas" );
+			if ( trashType == 5 )
+				image = Resources.getImage( "botella" );
+			if ( trashType == 6 )
+				image = Resources.getImage( "cajaCarton" );
+			if ( trashType == 7 )
+				image = Resources.getImage( "cajaPizza" );
+			if ( trashType == 8 )
+				image = Resources.getImage( "cartonJuice" );
+			if ( trashType == 9 )
+				image = Resources.getImage( "cascaraHuevo" );
+			if ( trashType == 10 )
+				image = Resources.getImage( "lata" );
+			if ( trashType == 11 )
+				image = Resources.getImage( "llanta" );
+			if ( trashType == 12 )
+				image = Resources.getImage( "manzana" );
+
 		} catch ( SlickException e ) {
 			e.printStackTrace();
 		}
