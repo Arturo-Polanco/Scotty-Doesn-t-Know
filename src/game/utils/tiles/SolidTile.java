@@ -8,9 +8,9 @@ import game.utils.physics.AABoundingRect;
  * 12/2/2014
  * Juego
  */
-public class SolidTile extends Tile{
+public class SolidTile extends Tile {
 	public SolidTile( int x, int y ) {
 		super( x, y );
-		boundingShape = new AABoundingRect(x*32,y*32,32,32);
+		boundingShape = new AABoundingRect( x * 32, y * 32, 32, 32 );
 	}
 }

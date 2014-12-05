@@ -15,7 +15,7 @@ import org.newdawn.slick.geom.Vector2f;
  * Juego
  */
 public class Trash extends GameObject {
-	public static int trashType;
+	private static int trashType;
 
 	public Trash( int x, int y ) {
 		this.x = x;
@@ -66,7 +66,6 @@ public class Trash extends GameObject {
 				image = Resources.getImage( "llanta" );
 			if ( trashType == 12 )
 				image = Resources.getImage( "manzana" );
-
 		} catch ( SlickException e ) {
 			e.printStackTrace();
 		}

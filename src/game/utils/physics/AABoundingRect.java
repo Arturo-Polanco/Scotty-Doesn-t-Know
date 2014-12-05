@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * 12/2/2014
  * Juego
  */
-public class AABoundingRect extends BoundingShape{
+public class AABoundingRect extends BoundingShape {
 	private float x;
 	private float y;
 	private float width;
@@ -52,12 +52,11 @@ public class AABoundingRect extends BoundingShape{
 
 	public ArrayList<Tile> getTilesOccupying( Tile[][] tiles ) {
 		ArrayList<Tile> tilesOccupied = new ArrayList<>();
-
-		for(int i = (int)x; i <= x+width+(32-width%32);i++ ){
-			for(int j = (int) y; j <= y+height+(32-height%32); j+=32){
+		for ( int i = (int) x; i <= x + width + ( 32 - width % 32 ); i++ ) {
+			for ( int j = (int) y; j <= y + height + ( 32 - height % 32 ); j += 32 ) {
 				try {
 					tilesOccupied.add( tiles[i / 32][j / 32] );
-				}catch ( Exception e ){
+				} catch ( Exception e ) {
 					return tilesOccupied;
 				}
 			}
@@ -68,11 +67,10 @@ public class AABoundingRect extends BoundingShape{
 	public ArrayList<Tile> getGroundTiles( Tile[][] tiles ) {
 		ArrayList<Tile> tilesUnderneath = new ArrayList<>();
 		int j = ( (int) ( y + height + 1 ) );
-
-		for(int i = ( (int) x ); i <= x+width+(32-width%32); i++)
+		for ( int i = ( (int) x ); i <= x + width + ( 32 - width % 32 ); i++ )
 			try {
 				tilesUnderneath.add( tiles[i / 32][j / 32] );
-			}catch(Exception e){
+			} catch ( Exception e ) {
 				return tilesUnderneath;
 			}
 		return tilesUnderneath;
