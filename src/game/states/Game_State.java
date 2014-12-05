@@ -40,7 +40,7 @@ public class Game_State extends BasicGameState {
 		stateGame = stateBasedGame;
 		width = gameContainer.getWidth();
 		height = gameContainer.getHeight();
-		SCALE = width / 1600;
+		SCALE = width / gameContainer.getScreenWidth();
 		player = new Player();
 		playerController = new KeyboardPlayerInput( player );
 		physics = new Physics();

@@ -15,7 +15,6 @@ import org.newdawn.slick.state.StateBasedGame;
  * Juego
  */
 class Game extends StateBasedGame {
-
 	private Game() {
 		super( "Proyecto POOA - Scotty doesn't Know..." );
 	}
@@ -28,7 +27,6 @@ class Game extends StateBasedGame {
 				game.setDisplayMode( game.getScreenWidth(), game.getScreenHeight(), true );
 			else
 				game.setDisplayMode( game.getScreenHeight() * 3 / 4 * 16 / 9, game.getScreenHeight() * 3 / 4, false );
-
 			game.start();
 		} catch ( SlickException e ) {
 			e.printStackTrace();
@@ -38,16 +36,14 @@ class Game extends StateBasedGame {
 	public void initStatesList( GameContainer gameContainer ) throws SlickException {
 		gameContainer.setMaximumLogicUpdateInterval( 120 );
 		gameContainer.setTargetFrameRate( 120 );
-		gameContainer.setAlwaysRender(true);
+		gameContainer.setAlwaysRender( true );
 		gameContainer.setShowFPS( false );
-
 		new Resources();
 
 		/* Add Menu, Game levels and Game Over/Victory Screen */
-		this.addState(new Menu_State());
+		this.addState( new Menu_State() );
 		this.addState( new Game_State() );
 		this.addState( new Win_State() );
 		this.addState( new Lose_State() );
-
 	}
 }

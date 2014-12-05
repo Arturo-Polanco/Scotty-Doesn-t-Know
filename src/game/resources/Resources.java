@@ -17,12 +17,12 @@ import java.util.Map;
  * Proyecto
  */
 public class Resources {
-	public static  Map<String, TiledMap>    maps;
-	private static Map<String, Image>       images;
-	private static Map<String, Sound> sounds;
-	private static Map<String, Music> musics;
-	private static Map<String, Audio> audio;
-	private static String[]           levels;
+	public static  Map<String, TiledMap> maps;
+	private static Map<String, Image>    images;
+	private static Map<String, Sound>    sounds;
+	private static Map<String, Music>    musics;
+	private static Map<String, Audio>    audio;
+	private static String[]              levels;
 
 	public Resources() {
 		levels = new String[3];
@@ -34,28 +34,27 @@ public class Resources {
 		sounds = new HashMap<>();
 		musics = new HashMap<>();
 		audio = new HashMap<>();
-
 		try {
 			/* add tile maps to map hash map */
 			TiledMap map = new TiledMap( "res/maps/mapa7.tmx" );
 			maps.put( "LevelOne", map );
-			map = new TiledMap("res/maps/mapa.tmx");
+			map = new TiledMap( "res/maps/mapa.tmx" );
 			maps.put( "LevelTwo", map );
-			map = new TiledMap("res/maps/mapa2.tmx");
+			map = new TiledMap( "res/maps/mapa2.tmx" );
 			maps.put( "LevelThree", map );
 
 			/* Add images to hash map */
 			images.put( "Loss", loadImage( "res/backgrounds/gameover.png" ) );
 			images.put( "Start", loadImage( "res/backgrounds/inicio.png" ) );
-			images.put( "Background", loadImage( "res/maps/Imgur.png"));
-			images.put( "Background2", loadImage( "res/maps/" + getTiledMap( "LevelOne" ).getMapProperty( "back", "grassy_mountains.png" ) ));
+			images.put( "Background", loadImage( "res/maps/Imgur.png" ) );
+			images.put( "Background2", loadImage( "res/maps/" + getTiledMap( "LevelOne" ).getMapProperty( "back", "grassy_mountains.png" ) ) );
 			images.put( "Background3", loadImage( "res/backgrounds/back.png" ) );
 			/* PowerUps */
-			images.put("FullHealthPowerUp", loadImage("res/sprites/powerup/fullhealth.png"));
-			images.put("SpeedPowerUp", loadImage("res/sprites/powerup/speed.png"));
-			images.put("StrengthPowerUp", loadImage("res/sprites/powerup/strength.png"));
-			images.put("25HealthPowerUp", loadImage("res/sprites/powerup/25health.png"));
-			images.put("SlowSpeedPowerUp", loadImage("res/sprites/powerup/slow.png"));
+			images.put( "FullHealthPowerUp", loadImage( "res/sprites/powerup/fullhealth.png" ) );
+			images.put( "SpeedPowerUp", loadImage( "res/sprites/powerup/speed.png" ) );
+			images.put( "StrengthPowerUp", loadImage( "res/sprites/powerup/strength.png" ) );
+			images.put( "25HealthPowerUp", loadImage( "res/sprites/powerup/25health.png" ) );
+			images.put( "SlowSpeedPowerUp", loadImage( "res/sprites/powerup/slow.png" ) );
 			/* Trash */
 			images.put( "banana", loadImage( "res/sprites/assets/banana.png" ) );
 			images.put( "basurero", loadImage( "res/sprites/assets/basurero.png" ) );
@@ -87,27 +86,27 @@ public class Resources {
 		}
 	}
 
-	public static Animation getAnimation(Image image, int spriteX, int spriteY, int spriteWidth, int spriteHeight) {
-		Animation anime = new Animation(false);
+	public static Animation getAnimation( Image image, int spriteX, int spriteY, int spriteWidth, int spriteHeight ) {
+		Animation anime = new Animation( false );
 		int c = 0;
 		for ( int y = 0; y < spriteY; y++ )
 			for ( int x = 0; x < spriteX; x++ ) {
 				if ( c < 30 )
-					anime.addFrame(image.getSubImage(x * spriteWidth, y * spriteHeight, spriteWidth, spriteHeight), 60);
+					anime.addFrame( image.getSubImage( x * spriteWidth, y * spriteHeight, spriteWidth, spriteHeight ), 60 );
 				c++;
 			}
 		return anime;
 	}
 
-	public static Image loadImage(String path) throws SlickException {
-		return new Image(path, false, Image.FILTER_NEAREST);
+	public static Image loadImage( String path ) throws SlickException {
+		return new Image( path, false, Image.FILTER_NEAREST );
 	}
 
-	public static Image getImage(String getter) {
-		return images.get(getter);
+	public static Image getImage( String getter ) {
+		return images.get( getter );
 	}
 
-	public static TiledMap getTiledMap(String map) {
+	public static TiledMap getTiledMap( String map ) {
 		return maps.get( map );
 	}
 

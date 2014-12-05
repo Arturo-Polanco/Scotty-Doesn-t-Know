@@ -34,7 +34,6 @@ public class Lose_State extends BasicGameState {
 			Resources.getAudio( "song3" ).stop();
 			Resources.getAudio( "song4" ).playAsMusic( 1.0f, 1.0f, false );
 		}
-
 		if ( input.isKeyPressed( Input.KEY_ENTER ) ) {
 			gameContainer.reinit();
 			stateBasedGame.enterState( States.GAME );

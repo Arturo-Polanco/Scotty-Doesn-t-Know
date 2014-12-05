@@ -15,9 +15,8 @@ import org.newdawn.slick.geom.Vector2f;
  * 10/4/2014
  * Proyecto
  */
-public class Enemy extends Character{
-
-	public Enemy(int x, int y) {
+public class Enemy extends Character {
+	public Enemy( int x, int y ) {
 		this.x = x;
 		this.y = y;
 		init();

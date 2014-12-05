@@ -14,24 +14,23 @@ import org.newdawn.slick.util.pathfinding.Mover;
  * 10/4/2014
  * Proyecto
  */
-public abstract class Entity implements Mover{
+public abstract class Entity implements Mover {
 	/* Primitive variables for entity values */
 	public float     health;
 	public float     maxHealth;
 	public float     x;
 	public float     y;
-	public int       height;
 	/* Special variables assigned to entity */
 	public Rectangle hitBox;
 	public boolean   punching;
 	public boolean   punched;
+	int           height;
 	int           width;
 	Vector2f      vector2f;
 	/* Movement boolean values*/
 	boolean       moving;
 	boolean       movedRight;
 	boolean       moved;
-	/**/
 	/**/
 	BoundingShape boundingShape;
 	Animation     anime;
@@ -44,7 +43,7 @@ public abstract class Entity implements Mover{
 	private float horizontalVelocity = 0;
 	private float maxFallRate        = .6f;
 
-	public Entity() {
+	Entity() {
 		init();
 	}
 

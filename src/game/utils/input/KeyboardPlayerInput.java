@@ -34,7 +34,6 @@ public class KeyboardPlayerInput extends PlayerController {
 		/* Player move left */
 		if ( input.isKeyDown( Input.KEY_LEFT ) || input.isKeyDown( Input.KEY_A ) )
 			player.moveLeft( delta );
-
 	}
 
 	public void handleInput( Input input, int delta, Level level ) {
