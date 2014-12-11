@@ -10,13 +10,17 @@ import org.newdawn.slick.SlickException;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 
+import java.io.Serializable;
+
 /**
  * ARTURO POLANCO CARRILLO
  * 01200720
  * 10/4/2014
  * Proyecto
  */
-public class Player extends Character {
+public class Player extends Character implements Serializable{
+	public int score;
+
 	public void jump() {
 		if ( getIsOnGround() )
 			verticalVelocity = -.8f;
@@ -51,7 +55,7 @@ public class Player extends Character {
 				else
 				/* Punch Left */
 					anime = Resources.getAnimation( Resources.loadImage( "res/sprites/scott/punch_Left.png" ), 16, 1, width, height );
-				Resources.getAudio( "punch" ).playAsSoundEffect( 1.0f, 1.0f, false );
+				Resources.getAudio( "punch" ).playAsSoundEffect( 0.9f, 0.9f, false );
 				punched = false;
 				moved = true;
 			} catch ( SlickException e ) {

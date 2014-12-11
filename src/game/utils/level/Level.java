@@ -132,7 +132,7 @@ public class Level {
 		int offset_y = getYOffset();
 		g.scale( Game_State.SCALE, Game_State.SCALE );
 		renderBackground();
-		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), -( offset_y % 32 ), offset_x / 32, offset_y / 32, ( Game_State.width / 32 ) + 5, Game_State.height );
+		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), -( offset_y % 32 ), offset_x / 32, offset_y / 32, ( Game_State.width / 32 ) + 1, Game_State.height );
 
 		/* Draw Health Bars*/
 		g.setColor( Color.black );
