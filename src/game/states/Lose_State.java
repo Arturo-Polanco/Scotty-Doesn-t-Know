@@ -24,17 +24,18 @@ public class Lose_State extends BasicGameState {
 
 	public void render( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g ) throws SlickException {
 		Resources.getImage( "Loss" ).draw( 0, 0, Game_State.width, Game_State.height );
+		g.drawString( "Your Score: " + Score.getScore() ,Game_State.width / 2, Game_State.height / 5 );
 	}
 
 	public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
 		Input input = gameContainer.getInput();
+
 		if ( !Resources.getAudio( "song4" ).isPlaying() ) {
 			Resources.getAudio( "song" ).stop();
 			Resources.getAudio( "song2" ).stop();
 			Resources.getAudio( "song3" ).stop();
 			Resources.getAudio( "song4" ).playAsMusic( 1.0f, 1.0f, false );
 		}
-
 		if ( input.isKeyPressed( Input.KEY_ENTER ) ) {
 			gameContainer.reinit();
 			stateBasedGame.enterState( States.GAME );

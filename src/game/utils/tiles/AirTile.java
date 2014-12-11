@@ -6,7 +6,7 @@ package game.utils.tiles;
  * 12/2/2014
  * Juego
  */
-public class AirTile extends  Tile{
+public class AirTile extends Tile {
 	public AirTile( int x, int y ) {
 		super( x, y );
 	}

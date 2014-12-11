@@ -6,6 +6,7 @@ import game.entities.Player;
 import game.entities.Trash;
 import game.resources.Resources;
 import game.states.Game_State;
+import game.states.Score;
 import game.utils.level.Level;
 import game.utils.tiles.Tile;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
  */
 public class Physics {
 	private static final float GRAVITY = 0.0015f;
+	public static int  score = 0;
 
 	private void handleEntities( Level level, int delta ) {
 		for ( Entity obj : Level.entities ) {
@@ -93,9 +95,9 @@ public class Physics {
 				}
 			}
 		}
-
-
 	}
+
+
 
 	private boolean isOnGround( Entity obj, Tile[][] mapTiles ) {
 		ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles( mapTiles );
@@ -120,8 +122,8 @@ public class Physics {
 
 	boolean checkCollision( Entity obj, Tile[][] mapTiles ) {
 		ArrayList<Tile> tiles = obj.getBoundingShape().getTilesOccupying( mapTiles );
-		for(Tile t : tiles){
-			if(t.getBoundingShape() != null){
+		for ( Tile t : tiles ) {
+			if ( t.getBoundingShape() != null ) {
 				if ( t.getBoundingShape().checkCollision( obj.getBoundingShape() ) ) {
 					return true;
 				}
@@ -132,11 +134,11 @@ public class Physics {
 
 	/* Test if any enemies are left behind and removes any entities left behind */
 	void leftBehind() {
-		int i = Level.entities.size()-1;
+		int i = Level.entities.size() - 1;
 		for ( int j = i; j > -1; j-- )
 			/* If enemy is at left of screen constrict player movement within current screen */
 			if ( ( Level.entities.get( j ) instanceof Enemy || Level.entities.get( j ) instanceof Trash ) && Level.entities.get( j ).y > Resources.maps.get( Level.levelMap ).getHeight() * 32 * Game_State.SCALE ) {
-				Level.entities.remove(j);
+				Level.entities.remove( j );
 				i--;
 			}
 	}
@@ -147,13 +149,18 @@ public class Physics {
 			if ( entity != obj && obj.hitBox.intersects( entity.hitBox ) ) {
 				if ( obj instanceof Player && entity instanceof Trash ) {
 					Level.entities.remove( entity );
+					Resources.getAudio( "ring" ).playAsSoundEffect( 1.0f, 1.0f, false );
+               score += 50;
+					( (Player) obj ).score = score;
+					Score.escribir( ""+ score );
+
 				}
 				if ( entity.punching ) {
 					if ( obj.health > 0 ) {
 						if ( obj instanceof Enemy )
-							obj.health -= .05f;
+							obj.health -= .6f;
 						else if ( obj instanceof Player )
-							obj.health -= .025f;
+							obj.health -= .1f;
 					}
 					else
 						obj.health = 0;

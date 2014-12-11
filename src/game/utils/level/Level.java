@@ -21,10 +21,10 @@ import java.util.ArrayList;
  * Juego
  */
 public class Level {
-	public static  ArrayList<Entity> entities;
-	public static String levelMap;
-	private        Tile[][]          tiles;
-	private        Player            player;
+	public static ArrayList<Entity> entities;
+	public static String            levelMap;
+	private       Tile[][]          tiles;
+	private       Player            player;
 
 	public Level( String level, Player player ) throws SlickException {
 		entities = new ArrayList<>();
@@ -131,9 +131,8 @@ public class Level {
 		int offset_x = getXOffset();
 		int offset_y = getYOffset();
 		g.scale( Game_State.SCALE, Game_State.SCALE );
-
 		renderBackground();
-		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), -( offset_y % 32 ), offset_x / 32, offset_y / 32, (int) ( Game_State.width / 32 ) + 1, Game_State.height );
+		Resources.maps.get( levelMap ).render( -( offset_x % 32 ), -( offset_y % 32 ), offset_x / 32, offset_y / 32, ( Game_State.width / 32 ) + 1, Game_State.height );
 
 		/* Draw Health Bars*/
 		g.setColor( Color.black );

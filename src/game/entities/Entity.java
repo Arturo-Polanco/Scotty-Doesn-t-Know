@@ -8,19 +8,26 @@ import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.geom.Vector2f;
 import org.newdawn.slick.util.pathfinding.Mover;
 
+
+
+
 /**
  * ARTURO POLANCO CARRILLO
  * 01200720
  * 10/4/2014
  * Proyecto
  */
-public abstract class Entity implements Mover{
+public abstract class Entity implements Mover {
 	/* Primitive variables for entity values */
-	public float     health;
-	public float     maxHealth;
-	public float     x;
-	public float     y;
-	public int       height;
+	public float health ;
+	public float maxHealth;
+	public float x;
+	public float y;
+	public int   height;
+	public int record;
+
+
+
 	/* Special variables assigned to entity */
 	public Rectangle hitBox;
 	public boolean   punching;
@@ -47,6 +54,13 @@ public abstract class Entity implements Mover{
 	public Entity() {
 		init();
 	}
+
+
+
+
+
+
+
 
 	protected abstract void init();
 

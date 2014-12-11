@@ -28,19 +28,19 @@ public class Win_State extends BasicGameState {
 	}
 
 	public void render( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g ) throws SlickException {
-		Resources.getImage( "Start" ).draw( 0, 0, Game_State.width, Game_State.height );
-
+		Resources.getImage( "win" ).draw( 0, 0, Game_State.width, Game_State.height );
+		g.drawString( "Your Score: " + Game_State.player.score ,Game_State.width / 2, Game_State.height / 5 );
 	}
 
 	public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
 		Input input = gameContainer.getInput();
+		Score.leer();
 		if ( !Resources.getAudio( "song2" ).isPlaying() ) {
 			Resources.getAudio( "song" ).stop();
 			Resources.getAudio( "song3" ).stop();
 			Resources.getAudio( "song4" ).stop();
 			Resources.getAudio( "song2" ).playAsMusic( 1.0f, 1.0f, true );
 		}
-
 		if ( input.isKeyPressed( Input.KEY_ENTER ) ) {
 			Game_State.player = new Player();
 			Game_State.playerController = new KeyboardPlayerInput( Game_State.player );
@@ -57,8 +57,7 @@ public class Win_State extends BasicGameState {
 			Resources.getAudio( "song" ).playAsMusic( 1.f, 1.f, true );
 			stateBasedGame.enterState( States.GAME );
 		}
-		
-		if ( input.isKeyPressed(Input.KEY_ESCAPE) || input.isControlPressed(7) )
+		if ( input.isKeyPressed( Input.KEY_ESCAPE ) || input.isControlPressed( 7 ) )
 			gameContainer.exit();
 	}
 }

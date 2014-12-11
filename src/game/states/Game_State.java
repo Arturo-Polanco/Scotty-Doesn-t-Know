@@ -16,6 +16,11 @@ import org.newdawn.slick.openal.SoundStore;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
+import java.awt.*;
+import java.io.*;
+
+
+
 /**
  * ARTURO POLANCO CARRILLO
  * 01200720
@@ -31,6 +36,69 @@ public class Game_State extends BasicGameState {
 	public static  Player           player;
 	private static StateBasedGame   stateGame;
 	private static Physics          physics;
+	private int Score     = 0;
+	private int highScore = 0;
+	private Font scoreFont;
+
+	// saving
+	private String saveDataPath;
+	private String filename ="SaveData";
+
+public void  Game_State (){
+	try {
+saveDataPath = Game_State.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath();
+	}catch ( Exception e ){
+		e.printStackTrace();
+	}
+     //scoreFont =Game.main.deriveFont(24f);
+	loadHighScore();
+
+}
+
+	private void createSaveData(){
+      try{
+	      File  file  = new File( saveDataPath,filename );
+	    //  BufferedWriter writer = new BufferedWriter(output);
+	   //   writer.write( ""+0 );
+	      // create fastest time
+      // writer.close();
+      } catch ( Exception e ){
+	      e.printStackTrace();
+      }
+	}
+
+	private void  loadHighScore(){
+try{
+	File  f = new File( saveDataPath,filename );
+	if(!f.isFile()){
+		createSaveData();
+	}
+	BufferedReader reader = new BufferedReader( new InputStreamReader( new FileInputStream( f ) ) );
+   highScore = Integer.parseInt( reader.readLine() );
+	// read faster time
+	reader.close();
+}catch (Exception e ){
+e.printStackTrace();
+}
+	}
+
+	private void setHighScore(){
+
+		FileWriter output = null;
+
+		try{
+			File f = new File(saveDataPath, filename);
+			output = new FileWriter( f );
+        BufferedWriter writer  = new BufferedWriter( output );
+			writer.write(""+highScore);
+		   writer.close();
+
+
+		}catch ( Exception e  ){
+			e.printStackTrace();
+
+		}
+	}
 
 	public int getID() {
 		return States.GAME;
@@ -40,7 +108,7 @@ public class Game_State extends BasicGameState {
 		stateGame = stateBasedGame;
 		width = gameContainer.getWidth();
 		height = gameContainer.getHeight();
-		SCALE = width / 1600;
+		SCALE = width / gameContainer.getScreenWidth();
 		player = new Player();
 		playerController = new KeyboardPlayerInput( player );
 		physics = new Physics();
@@ -50,10 +118,15 @@ public class Game_State extends BasicGameState {
 
 	public void render( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g ) throws SlickException {
 		level.render( gameContainer, g );
+
 	}
 
 	public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int delta ) throws SlickException {
 		try {
+
+			if(Score > highScore){
+				highScore=Score;
+			}
 			Input input = gameContainer.getInput();
 			playerController.handleInput( input, delta, level );
 			physics.handlePhysics( level, delta );
@@ -92,5 +165,19 @@ public class Game_State extends BasicGameState {
 			Game_State.stateGame.enterState( States.WIN );
 		if ( player.getY() > Resources.maps.get( Level.levelMap ).getHeight() * 32 * Game_State.SCALE || player.health <= 0 )
 			Game_State.stateGame.enterState( States.LOSE );
+	     Entity  begin = new Entity() {
+		     protected void init() {
+		     }
+
+		     public void applyPowerUp( int powerUpType ) {
+		     }
+
+		     public void update( GameContainer gameContainer, int delta ) {
+		     }
+	     };
+
+
 	}
+
+
 }
