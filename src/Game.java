@@ -10,7 +10,9 @@ import org.newdawn.slick.state.StateBasedGame;
 
 /**
  * ARTURO POLANCO CARRILLO
+ * JAIME ARVIZU OSUNA
  * 01200720
+ * 290129
  * 12/2/2014
  * Juego
  */
@@ -20,6 +22,9 @@ class Game extends StateBasedGame {
 	}
 
 	public static void main( String[] args ) {
+
+
+
 		try {
 			AppGameContainer game = new AppGameContainer( new Game() );
 			/* Check is screen is 16:9 in order to run full screen, otherwise calculate a smaller window size for 16:9 ratio */

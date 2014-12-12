@@ -45,8 +45,9 @@ public class Resources {
 
 			/* Add images to hash map */
 			images.put( "Loss", loadImage( "res/backgrounds/gameover.png" ) );
+			images.put( "win", loadImage( "res/backgrounds/win.png" ) );
 			images.put( "Start", loadImage( "res/backgrounds/inicio.png" ) );
-			images.put( "Background", loadImage( "res/maps/Imgur.png" ) );
+			images.put( "Background", loadImage( "res/backgrounds/back.png" ) );
 			images.put( "Background2", loadImage( "res/maps/" + getTiledMap( "LevelOne" ).getMapProperty( "back", "grassy_mountains.png" ) ) );
 			images.put( "Background3", loadImage( "res/backgrounds/back.png" ) );
 			/* PowerUps */
@@ -80,6 +81,7 @@ public class Resources {
 			audio.put( "song2", loadOggAudio( "res/sounds/AerisPianoByTannerHelland.ogg" ) );
 			audio.put( "song3", loadOggAudio( "res/sounds/Guile_Theme.ogg" ) );
 			audio.put( "song4", loadOggAudio( "res/sounds/GameOver.ogg" ) );
+			audio.put( "ring", loadWavAudio( "res/sounds/ring.wav" ) );
 			audio.put( "punch", loadWavAudio( "res/sounds/punch.wav" ) );
 		} catch ( Exception e ) {
 			e.printStackTrace();

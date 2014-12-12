@@ -6,6 +6,7 @@ import game.entities.Player;
 import game.entities.Trash;
 import game.resources.Resources;
 import game.states.Game_State;
+import game.states.Score;
 import game.utils.level.Level;
 import game.utils.tiles.Tile;
 
@@ -19,6 +20,7 @@ import java.util.ArrayList;
  */
 public class Physics {
 	private static final float GRAVITY = 0.0015f;
+	public static int  score = 0;
 
 	private void handleEntities( Level level, int delta ) {
 		for ( Entity obj : Level.entities ) {
@@ -95,6 +97,8 @@ public class Physics {
 		}
 	}
 
+
+
 	private boolean isOnGround( Entity obj, Tile[][] mapTiles ) {
 		ArrayList<Tile> tiles = obj.getBoundingShape().getGroundTiles( mapTiles );
 		int yMovement = 1;
@@ -145,13 +149,18 @@ public class Physics {
 			if ( entity != obj && obj.hitBox.intersects( entity.hitBox ) ) {
 				if ( obj instanceof Player && entity instanceof Trash ) {
 					Level.entities.remove( entity );
+					Resources.getAudio( "ring" ).playAsSoundEffect( 1.0f, 1.0f, false );
+               score += 50;
+					( (Player) obj ).score = score;
+					Score.escribir( ""+ score );
+
 				}
 				if ( entity.punching ) {
 					if ( obj.health > 0 ) {
 						if ( obj instanceof Enemy )
-							obj.health -= .1f;
+							obj.health -= .6f;
 						else if ( obj instanceof Player )
-							obj.health -= .025f;
+							obj.health -= .1f;
 					}
 					else
 						obj.health = 0;

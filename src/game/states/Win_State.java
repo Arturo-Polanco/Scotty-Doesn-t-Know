@@ -28,11 +28,13 @@ public class Win_State extends BasicGameState {
 	}
 
 	public void render( GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g ) throws SlickException {
-		Resources.getImage( "Start" ).draw( 0, 0, Game_State.width, Game_State.height );
+		Resources.getImage( "win" ).draw( 0, 0, Game_State.width, Game_State.height );
+		g.drawString( "Your Score: " + Game_State.player.score ,Game_State.width / 2, Game_State.height / 5 );
 	}
 
 	public void update( GameContainer gameContainer, StateBasedGame stateBasedGame, int i ) throws SlickException {
 		Input input = gameContainer.getInput();
+		Score.leer();
 		if ( !Resources.getAudio( "song2" ).isPlaying() ) {
 			Resources.getAudio( "song" ).stop();
 			Resources.getAudio( "song3" ).stop();
