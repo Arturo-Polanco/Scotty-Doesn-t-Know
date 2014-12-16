@@ -10,3 +10,5 @@ Side Scroller Beat em up in the style of Scott Pilgrim VS The World
 
 -Jaime Arvizu Osuna
   jaime.arvizu@uabc.edu.mx
+
+Para mas informacion sobre el juego, o como compilar/correrlo,  vea el wiki.
